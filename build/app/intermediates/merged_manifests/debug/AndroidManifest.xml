@@ -17,7 +17,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="routier" >
+        android:label="Le Routier" >
         <activity
             android:name="com.example.routier.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

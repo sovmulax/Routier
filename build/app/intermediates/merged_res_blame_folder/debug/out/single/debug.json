@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/app/intermediates/res/merged/debug/mipmap-hdpi_logo.png.flat",
+        "source": "/home/geoffroy/Documents/Git/Routier/android/app/src/main/res/mipmap-hdpi/logo.png"
+    },
+    {
         "merged": "/home/geoffroy/Documents/Git/Routier/build/app/intermediates/res/merged/debug/drawable_launch_background.xml.flat",
         "source": "/home/geoffroy/Documents/Git/Routier/android/app/src/main/res/drawable/launch_background.xml"
     },

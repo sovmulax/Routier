@@ -16,16 +16,16 @@
 14-->/home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:22-64
 15
 16    <application
-16-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-40:19
+16-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-32:19
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 17-->[androidx.core:core:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
-19        android:icon="@mipmap/ic_launcher"
-19-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:5:9-43
+19        android:icon="@mipmap/logo"
+19-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:5:9-36
 20        android:label="Le Routier" >
 20-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:4:9-35
 21        <activity
-21-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:6:9-34:20
+21-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:6:9-27:20
 22            android:name="com.example.routier.MainActivity"
 22-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:7:13-41
 23            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -38,54 +38,37 @@
 26-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:9:13-47
 27            android:windowSoftInputMode="adjustResize" >
 27-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:12:13-55
-28
-29            <!--
-30                 Specifies an Android theme to apply to this Activity as soon as
-31                 the Android process has started. This theme is visible to the user
-32                 while the Flutter UI initializes. After that, this theme continues
-33                 to determine the Window background behind the Flutter UI.
-34            -->
-35            <meta-data
-35-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:17:13-20:17
-36                android:name="io.flutter.embedding.android.NormalTheme"
-36-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:18:15-70
-37                android:resource="@style/NormalTheme" />
-37-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:19:15-52
-38            <!--
-39                 Displays an Android View that continues showing the launch screen
-40                 Drawable until Flutter paints its first frame, then this splash
-41                 screen fades out. A splash screen is useful to avoid any visual
-42                 gap between the end of Android's launch screen and the painting of
-43                 Flutter's first frame.
-44            -->
-45            <meta-data
-45-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:26:13-29:17
-46                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-46-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:27:15-79
-47                android:resource="@drawable/launch_background" />
-47-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:28:15-61
-48
-49            <intent-filter>
-49-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:30:13-33:29
-50                <action android:name="android.intent.action.MAIN" />
-50-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:17-68
-50-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:25-66
-51
-52                <category android:name="android.intent.category.LAUNCHER" />
-52-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:32:17-76
-52-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:32:27-74
-53            </intent-filter>
-54        </activity>
-55        <!--
-56             Don't delete the meta-data below.
-57             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-58        -->
-59        <meta-data
-59-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:37:9-39:33
-60            android:name="flutterEmbedding"
-60-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:38:13-44
-61            android:value="2" />
-61-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:39:13-30
-62    </application>
-63
-64</manifest>
+28            <meta-data
+28-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:14:13-17:17
+29                android:name="io.flutter.embedding.android.NormalTheme"
+29-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:15:15-70
+30                android:resource="@style/NormalTheme" />
+30-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:16:15-52
+31            <meta-data
+31-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:19:13-22:17
+32                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+32-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:20:15-79
+33                android:resource="@drawable/launch_background" />
+33-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:21:15-61
+34
+35            <intent-filter>
+35-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:23:13-26:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:17-68
+36-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:17-76
+38-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:27-74
+39            </intent-filter>
+40        </activity>
+41
+42        <meta-data
+42-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:29:9-31:33
+43            android:name="flutterEmbedding"
+43-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:30:13-44
+44            android:value="2" />
+44-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:13-30
+45    </application>
+46
+47</manifest>

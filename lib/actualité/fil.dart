@@ -29,7 +29,10 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           Container(
-            child: Image.asset('assets/images/logo.png', width: 50,),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 50,
+            ),
             margin: EdgeInsets.only(right: 20),
           )
         ],
@@ -37,11 +40,18 @@ class MyHomePage extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
         ),
-
         backgroundColor: Color.fromRGBO(21, 106, 155, 1),
       ),
-      body: const Center(
-        child: Text('Contenu de la page'),
+      body: ListView(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+              ],
+            ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -56,31 +66,46 @@ class MyHomePage extends StatelessWidget {
             ListTile(
               title: const Text('Actualité'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Fil()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Fil()));
               },
             ),
             ListTile(
               title: const Text('Calendrier Routier'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Event()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Event()));
               },
             ),
             ListTile(
               title: const Text('Forum de Discussion'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Forum()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Forum()));
               },
             ),
             ListTile(
               title: const Text('Annuaire de Contact'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Annuaire()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Annuaire()));
               },
             ),
             ListTile(
               title: const Text('Déconnexion'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Fil()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Fil()));
               },
             ),
           ],

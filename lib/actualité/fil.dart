@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
 import 'package:routier/forum.dart';
-
+import 'package:routier/menu.dart';
 void main() {
   runApp(Fil());
 }
@@ -11,6 +11,7 @@ class Fil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Fil',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -48,69 +49,30 @@ class MyHomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+
               ],
             ),
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(21, 106, 155, 1),
-              ),
-              child: Text('Header'),
-            ),
-            ListTile(
-              title: const Text('Actualité'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Fil()));
-              },
-            ),
-            ListTile(
-              title: const Text('Calendrier Routier'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Event()));
-              },
-            ),
-            ListTile(
-              title: const Text('Forum de Discussion'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Forum()));
-              },
-            ),
-            ListTile(
-              title: const Text('Annuaire de Contact'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Annuaire()));
-              },
-            ),
-            ListTile(
-              title: const Text('Déconnexion'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Fil()));
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: SideMenu()
     );
   }
+}
+
+class Publication extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+
+          ],
+        )
+      ],
+    );
+  }
+  
 }

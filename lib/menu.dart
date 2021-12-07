@@ -4,48 +4,10 @@ import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
 import 'package:routier/forum.dart';
 
-void main() {
-  runApp(Menu());
-}
-
-class Menu extends StatelessWidget {
+class SideMenu extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Menu',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'ACTUALITÉ'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Container(
-            child: Image.asset('assets/images/logo.png', width: 50,),
-            margin: EdgeInsets.only(right: 20),
-          ),
-          
-        ],
-        title: Text(
-          title,
-          textAlign: TextAlign.center,
-        ),
-
-        backgroundColor: Color.fromRGBO(21, 106, 155, 1),
-      ),
-      body: const Center(
-        child: Text('Contenu de la page'),
-      ),
-      drawer: Drawer(
+    return Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -87,7 +49,6 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

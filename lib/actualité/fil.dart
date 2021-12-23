@@ -49,7 +49,7 @@ class MyHomePage extends StatelessWidget {
         body: ListView(
           children: const [Publication(), Publication(), Publication()],
         ),
-        drawer: SideMenu());
+        drawer: const SideMenu());
   }
 }
 

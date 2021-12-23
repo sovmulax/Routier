@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:routier/menu.dart';
 import 'actualité/fil.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.teal,
         ),
-        home: SplashScreen());
+        home: const SplashScreen());
   }
 }
 
 //My splash screen class
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return StateScreen();
@@ -34,10 +37,8 @@ class StateScreen extends State<SplashScreen> {
   //Definition of the content of the splash screen
   Widget mySplash =
       Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-    Container(
-      child: Image.asset('assets/images/logo.png', width: 250, height: 250),
-    ),
-    Padding(
+    Image.asset('assets/images/logo.png', width: 250, height: 250),
+    const Padding(
       padding: EdgeInsets.only(top: 40),
     ),
   ]);
@@ -50,7 +51,7 @@ class StateScreen extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = Duration(
+    var duration = const Duration(
         seconds: 3); //We set the duration of the splash screen at 5 seconds
     return Timer(duration, route);
   }
@@ -58,14 +59,14 @@ class StateScreen extends State<SplashScreen> {
   //Method allowing us to access the afterSplash page
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Fil()));
+        context, MaterialPageRoute(builder: (context) => const Fil()));
   }
 
   //Overriding the build function of StateScreen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(21, 106, 155, 1),
+        backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
         body: Center(child: mySplash) //SplashScreen()
         );
   }

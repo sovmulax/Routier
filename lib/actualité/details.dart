@@ -46,7 +46,7 @@ class MyHomePage extends StatelessWidget {
       body: ListView(
         children: const [DetailPub()],
       ),
-      drawer: SideMenu(),
+      drawer: const SideMenu(),
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:routier/calendrier/events.dart';
 import 'package:routier/forum.dart';
 
 class SideMenu extends StatelessWidget{
+  const SideMenu({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -20,31 +22,31 @@ class SideMenu extends StatelessWidget{
             ListTile(
               title: const Text('Actualité'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Fil()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Fil()));
               },
             ),
             ListTile(
               title: const Text('Calendrier Routier'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Event()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Event()));
               },
             ),
             ListTile(
               title: const Text('Forum de Discussion'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Forum()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Forum()));
               },
             ),
             ListTile(
               title: const Text('Annuaire de Contact'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Annuaire()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Annuaire()));
               },
             ),
             ListTile(
               title: const Text('Déconnexion'),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => Fil()));
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Fil()));
               },
             ),
           ],

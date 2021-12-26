@@ -40,10 +40,80 @@ class MyHomePage extends StatelessWidget {
 
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
-      body: const Center(
-        child: Text('Contenu de la page'),
-      ),
+      body: ListView(
+          children: const [Contact(), Contact(), Contact()],
+          
+        ),
       drawer: const SideMenu(),
+    );
+  }
+}
+
+
+class Contact extends StatelessWidget {
+  final String service = "Police";
+  final String numero = "100";
+
+  final String fontStyle = "Ubuntu";
+
+  const Contact({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.015,
+              ),
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: Text(
+                        service,
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 30,
+                            fontFamily: fontStyle),
+                      ),
+                      color: Colors.white,
+                      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    ),
+                    Container(
+                      child: Text(
+                        numero,
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 30,
+                            fontFamily: fontStyle),
+                      ),
+                      color: Colors.white,
+                    ),
+                    Container(
+                      child: const Icon(Icons.phone, color: Colors.grey, size: 30,),
+                      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                    ),
+                  ],
+                ),
+                width: MediaQuery.of(context).size.width * 1,
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.015,
+              ),
+            ],
+          ),
+          width: MediaQuery.of(context).size.width * 1,
+          height: MediaQuery.of(context).size.height * 0.08,
+          margin: const EdgeInsets.fromLTRB(0, 35, 0, 10),
+        )
+      ],
     );
   }
 }

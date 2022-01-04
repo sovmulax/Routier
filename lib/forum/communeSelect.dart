@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:routier/menu.dart';
 
 void main() {
-  runApp(const Forum());
+  runApp(const CommuneSelect());
 }
 
-class Forum extends StatelessWidget {
-  const Forum({Key? key}) : super(key: key);
+class CommuneSelect extends StatelessWidget {
+  const CommuneSelect({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

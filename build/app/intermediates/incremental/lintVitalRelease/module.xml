@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/home/geoffroy/Documents/Git/Routier/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.0.1"
+    buildFolder="/home/geoffroy/Documents/Git/Routier/build/app"
+    bootClassPath="/home/geoffroy/Android/Sdk/platforms/android-30/android.jar:/home/geoffroy/Android/Sdk/build-tools/30.0.2/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-30">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

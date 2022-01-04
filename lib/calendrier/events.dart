@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routier/calendrier/details.dart';
 import 'package:routier/menu.dart';
 
 void main() {
@@ -43,7 +44,12 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
       body: ListView(
-        children: const [WEvents(event: 'evane', date: '10, Décembre 2022', /*couleur: 'green',*/)],
+        children: const [
+          WEvents(
+            event: 'evane',
+            date: '10, Décembre 2022', /*couleur: 'green',*/
+          )
+        ],
       ),
       drawer: const SideMenu(),
     );
@@ -58,7 +64,11 @@ class WEvents extends StatelessWidget {
   //final Color couleur;
   final String fontStyle = "Ubuntu";
 
-  const WEvents({Key? key, required this.event, required this.date/*, required this.couleur*/}) : super(key: key);
+  const WEvents(
+      {Key? key,
+      required this.event,
+      required this.date /*, required this.couleur*/})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,19 +104,29 @@ class WEvents extends StatelessWidget {
                           )
                         ],
                       ),
-                      Container(
-                        child: const Icon(
-                          Icons.arrow_right_alt_rounded,
-                          color: Colors.grey,
-                          size: 30,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      const Detail()));
+                        },
+                        child: Container(
+                          child: const Icon(
+                            Icons.arrow_right_alt_rounded,
+                            color: Colors.grey,
+                            size: 30,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                    10.0) //                 <--- border radius here
+                                ),
+                          ),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                         ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: const BorderRadius.all(Radius.circular(
-                                  10.0) //                 <--- border radius here
-                              ),
-                        ),
-                        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                       ),
                     ],
                   ),
@@ -116,11 +136,11 @@ class WEvents extends StatelessWidget {
             ),
             width: MediaQuery.of(context).size.width * 1,
             height: MediaQuery.of(context).size.height * 0.07,
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+            margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
             decoration: const BoxDecoration(
               border: Border(
                 left: BorderSide(
-                  color: Colors.greenAccent,
+                  color: Colors.green,
                   width: 7.0,
                 ),
               ),

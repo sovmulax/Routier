@@ -5,6 +5,7 @@ INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidM
 INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
 INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
 MERGED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-3/9ac123f6d9fab3fadce01afda79232cc/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/geoffroy/.gradle/caches/transforms-3/4b7dc99887608ea97361857ced5aa266/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/geoffroy/.gradle/caches/transforms-3/616a5c34e0f948adb652df374caec93f/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -39,6 +40,8 @@ INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/Android
 		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:11-69
 application
 ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-32:19
+MERGED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-3/a695289e523a3f706d3d209269263aaf/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
@@ -95,6 +98,8 @@ uses-sdk
 INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
+MERGED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-3/9ac123f6d9fab3fadce01afda79232cc/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-3/9ac123f6d9fab3fadce01afda79232cc/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/geoffroy/.gradle/caches/transforms-3/4b7dc99887608ea97361857ced5aa266/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
@@ -137,3 +142,11 @@ uses-permission#android.permission.INTERNET
 ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:5-66
 	android:name
 		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:22-64
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74

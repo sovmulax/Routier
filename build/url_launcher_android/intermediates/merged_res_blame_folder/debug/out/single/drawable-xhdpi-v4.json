@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable-xhdpi-v4/notification_bg_normal.9.png",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    }
+]

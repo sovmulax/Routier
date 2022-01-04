@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:routier/menu.dart';
+import 'package:routier/calendrier/events.dart';
 
 void main() {
   runApp(const Detail());
@@ -15,7 +15,7 @@ class Detail extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'CALENDRIER - DÉTAILS'),
+      home: const MyHomePage(title: "Détails de l'Evenement"),
     );
   }
 }
@@ -27,35 +27,44 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Container(
-            child: Image.asset(
-              'assets/images/logo.png',
-              width: 50,
-            ),
-            margin: const EdgeInsets.only(right: 20),
-          )
-        ],
         title: Text(
           title,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const Event())),
         ),
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
       body: Column(
-        children: const [
-          Text(
-            "Détails de l'Evenement",
-            style: TextStyle(
-                color: Colors.black87,
-                fontStyle: FontStyle.normal,
-                fontSize: 40,
-                fontFamily: 'Ubuntu'),
-          ),
-          CDetail()
-        ],
+        children: const [CDetail()],
       ),
-      drawer: const SideMenu(),
+      drawer: GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const Event()));
+        },
+        child: Container(
+          child: const Icon(
+            Icons.keyboard_arrow_left,
+            color: Colors.grey,
+            size: 30,
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: const BorderRadius.all(
+                Radius.circular(10.0) //                 <--- border radius here
+                ),
+          ),
+          margin: const EdgeInsets.fromLTRB(0, 10, 365, 10),
+        ),
+      ),
     );
   }
 }
@@ -75,17 +84,40 @@ class CDetail extends StatelessWidget {
         Container(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 child: Text(
-                  "Zone Concerné",
+                  "\tZone Concerné",
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 20,
+                      fontSize: 25,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.98,
-                margin: const EdgeInsets.fromLTRB(2, 40, 0, 0),
+              ),
+              Container(
+                child: Text(
+                  "- Koumassi \n - Marcory",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 22,
+                      fontFamily: fontStyle),
+                ),
+                width: MediaQuery.of(context).size.width * 0.95,
+                margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+              ),
+              Container(
+                child: Text(
+                  "Détails",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      fontFamily: fontStyle),
+                ),
+                margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
               ),
               Container(
                 child: Text(

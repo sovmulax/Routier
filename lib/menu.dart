@@ -4,53 +4,108 @@ import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
 import 'package:routier/forum.dart';
 
-class SideMenu extends StatelessWidget{
+class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(21, 106, 155, 1),
-              ),
-              child: Text('Header'),
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  child: Image.asset('assets/images/logo.png'),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  width: MediaQuery.of(context).size.width * 0.15,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+                const Text(
+                  'John Doe',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 25,
+                      fontFamily: 'Ubuntu'),
+                ),
+                const Text(
+                  'Jhon@gmail.com',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 20,
+                      fontFamily: 'Ubuntu'),
+                ),
+              ],
             ),
-            ListTile(
-              title: const Text('Actualité'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Fil()));
-              },
+            decoration:
+                const BoxDecoration(color: Color.fromRGBO(21, 106, 155, 1)),
+          ),
+          ListTile(
+            title: const Text(
+              'Actualité',
+              style: TextStyle(
+                  color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu'),
             ),
-            ListTile(
-              title: const Text('Calendrier Routier'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Event()));
-              },
-            ),
-            ListTile(
-              title: const Text('Forum de Discussion'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Forum()));
-              },
-            ),
-            ListTile(
-              title: const Text('Annuaire de Contact'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Annuaire()));
-              },
-            ),
-            ListTile(
-              title: const Text('Déconnexion'),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const Fil()));
-              },
-            ),
-          ],
-        ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Fil()));
+            },
+          ),
+          ListTile(
+            title: const Text('Calendrier Routier',
+                style: TextStyle(
+                    color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Event()));
+            },
+          ),
+          ListTile(
+            title: const Text('Forum de Discussion',
+                style: TextStyle(
+                    color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Forum()));
+            },
+          ),
+          ListTile(
+            title: const Text('Annuaire de Contact',
+                style: TextStyle(
+                    color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Annuaire()));
+            },
+          ),
+          ListTile(
+            title: const Text('Déconnexion',
+                style: TextStyle(
+                    color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Fil()));
+            },
+          ),
+          
+        ],
+      ),
     );
   }
 }

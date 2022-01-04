@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable/notification_bg_low.xml",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable/notification_bg.xml",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable/notification_icon_background.xml",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_res/debug/drawable/notification_tile_bg.xml",
+        "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/drawable/notification_tile_bg.xml"
+    }
+]

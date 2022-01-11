@@ -69,3 +69,7 @@ class MyHomePage extends StatelessWidget {
         drawer: const SideMenu());
   }
 }
+
+class Message {
+  
+}

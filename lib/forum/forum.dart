@@ -44,18 +44,21 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
         ),
         body: Center(
-          child: Row(
+          child: Column(
             children: const [
+              SizedBox(
+                height: 20,
+              ),
               Center(
                 child: Text(
-                  "COMMUNE",
+                  "NOM DE LA COMMUNE",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
               SizedBox(
                 height: 10,
               ),
-              
+              //Message(),
             ],
           ),
         ),
@@ -70,6 +73,4 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Message {
-  
-}
+class Message {}

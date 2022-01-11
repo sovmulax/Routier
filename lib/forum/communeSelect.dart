@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routier/forum/forum.dart';
 import 'package:routier/menu.dart';
 
 void main() {
@@ -58,7 +59,15 @@ class MyHomePage extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 primary: const Color.fromRGBO(21, 106, 155, 1),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                    const Forum()
+                  )
+                );
+              },
               child: const Text(
                 'Ouvrir le forum',
               ),

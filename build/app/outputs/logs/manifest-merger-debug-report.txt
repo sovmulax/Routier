@@ -1,139 +1,139 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/eb26273f8f7192460456ce62b9bdf9ef/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/d9536c14ffde0b7289f12ba6def6bfa4/loader-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/68dbf8ea01a1dbd974fc87b5753550f0/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/bc28a09d8d2212ffd5788fe6c1853326/customview-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/ca6b214160bd0909b103aa12202ef51c/lifecycle-runtime-2.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2271d874344878e62b9a8e309af0c39d/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/fb333fb43575d8a3b51161295454427f/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/cad25976877a6ae855ef6821534f58a1/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.tracing:tracing:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/1fdddb698f5b73fbeb212822ee0a08f1/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f606c30f064eed94124828de37fadc0/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/87cae496edf0d81af80ab48e3e89ecce/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/15792e6083b2b5b5a7ffa285d47daa24/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/a861f0b05a17132e2f96ff286e3c4f23/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+MERGED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\9ac123f6d9fab3fadce01afda79232cc\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4b7dc99887608ea97361857ced5aa266\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\616a5c34e0f948adb652df374caec93f\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\59d4ee96b2da603a12de6479c305207f\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4c106bb872177dbdc73900d22b0f9978\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\jforc\.gradle\caches\transforms-3\b2f764475f96792a53b6f1a562573a26\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\112da296098787a9ea446b27ca2620c3\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\c99bf89cbfd00a545852446524c6f921\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\f8979294b29853f9a4faf27d750b0e06\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\d237166527ea36ef131ac59de3f365ad\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\0f133eef5e473e951df6ad05c8fdfe8d\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\jforc\.gradle\caches\transforms-3\a695289e523a3f706d3d209269263aaf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jforc\.gradle\caches\transforms-3\dc0ff0c0f7f922fb3d82758e32a9743a\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\0f6416215b2890dfe5cbae3a58c8b0c2\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 	package
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:2:5-34
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:2:5-34
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:1-33:12
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:1-33:12
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:1:11-69
 application
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-32:19
-MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:24:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/87cae496edf0d81af80ab48e3e89ecce/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/87cae496edf0d81af80ab48e3e89ecce/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:3:4-32:19
+MERGED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\jforc\.gradle\caches\transforms-3\a695289e523a3f706d3d209269263aaf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\jforc\.gradle\caches\transforms-3\a695289e523a3f706d3d209269263aaf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:4:9-35
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:4:9-35
 	android:icon
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:5:9-36
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:5:9-36
 activity#com.example.routier.MainActivity
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:6:9-27:20
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:6:9-27:20
 	android:launchMode
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:8:13-43
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:8:13-43
 	android:hardwareAccelerated
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:11:13-47
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:11:13-47
 	android:windowSoftInputMode
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:12:13-55
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:12:13-55
 	android:configChanges
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:10:13-163
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:10:13-163
 	android:theme
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:9:13-47
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:9:13-47
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:7:13-41
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:7:13-41
 meta-data#io.flutter.embedding.android.NormalTheme
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:14:13-17:17
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:14:13-17:17
 	android:resource
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:16:15-52
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:16:15-52
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:15:15-70
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:15:15-70
 meta-data#io.flutter.embedding.android.SplashScreenDrawable
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:19:13-22:17
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:19:13-22:17
 	android:resource
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:21:15-61
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:21:15-61
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:20:15-79
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:20:15-79
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:23:13-26:29
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:23:13-26:29
 action#android.intent.action.MAIN
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:17-68
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:24:17-68
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:25-66
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:17-76
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:25:17-76
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:27-74
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:25:27-74
 meta-data#flutterEmbedding
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:29:9-31:33
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:29:9-31:33
 	android:value
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:13-30
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:31:13-30
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:30:13-44
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:30:13-44
 uses-sdk
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2fd9120a6da4df3dbabdd40f6a2d8995/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/eb26273f8f7192460456ce62b9bdf9ef/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/eb26273f8f7192460456ce62b9bdf9ef/viewpager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/d9536c14ffde0b7289f12ba6def6bfa4/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/d9536c14ffde0b7289f12ba6def6bfa4/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/68dbf8ea01a1dbd974fc87b5753550f0/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/68dbf8ea01a1dbd974fc87b5753550f0/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/bc28a09d8d2212ffd5788fe6c1853326/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/bc28a09d8d2212ffd5788fe6c1853326/customview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/ca6b214160bd0909b103aa12202ef51c/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/ca6b214160bd0909b103aa12202ef51c/lifecycle-runtime-2.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2271d874344878e62b9a8e309af0c39d/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/2271d874344878e62b9a8e309af0c39d/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/fb333fb43575d8a3b51161295454427f/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/fb333fb43575d8a3b51161295454427f/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/cad25976877a6ae855ef6821534f58a1/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/cad25976877a6ae855ef6821534f58a1/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.tracing:tracing:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/1fdddb698f5b73fbeb212822ee0a08f1/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/1fdddb698f5b73fbeb212822ee0a08f1/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f606c30f064eed94124828de37fadc0/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f606c30f064eed94124828de37fadc0/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/87cae496edf0d81af80ab48e3e89ecce/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/87cae496edf0d81af80ab48e3e89ecce/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/15792e6083b2b5b5a7ffa285d47daa24/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/15792e6083b2b5b5a7ffa285d47daa24/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/a861f0b05a17132e2f96ff286e3c4f23/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/a861f0b05a17132e2f96ff286e3c4f23/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
-INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\9ac123f6d9fab3fadce01afda79232cc\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\9ac123f6d9fab3fadce01afda79232cc\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4b7dc99887608ea97361857ced5aa266\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4b7dc99887608ea97361857ced5aa266\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\616a5c34e0f948adb652df374caec93f\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\616a5c34e0f948adb652df374caec93f\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\59d4ee96b2da603a12de6479c305207f\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\59d4ee96b2da603a12de6479c305207f\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4c106bb872177dbdc73900d22b0f9978\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\4c106bb872177dbdc73900d22b0f9978\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\jforc\.gradle\caches\transforms-3\b2f764475f96792a53b6f1a562573a26\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\jforc\.gradle\caches\transforms-3\b2f764475f96792a53b6f1a562573a26\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\112da296098787a9ea446b27ca2620c3\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\112da296098787a9ea446b27ca2620c3\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\c99bf89cbfd00a545852446524c6f921\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\c99bf89cbfd00a545852446524c6f921\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\f8979294b29853f9a4faf27d750b0e06\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\f8979294b29853f9a4faf27d750b0e06\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\d237166527ea36ef131ac59de3f365ad\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\jforc\.gradle\caches\transforms-3\d237166527ea36ef131ac59de3f365ad\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\0f133eef5e473e951df6ad05c8fdfe8d\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\jforc\.gradle\caches\transforms-3\0f133eef5e473e951df6ad05c8fdfe8d\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\jforc\.gradle\caches\transforms-3\a695289e523a3f706d3d209269263aaf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\jforc\.gradle\caches\transforms-3\a695289e523a3f706d3d209269263aaf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jforc\.gradle\caches\transforms-3\dc0ff0c0f7f922fb3d82758e32a9743a\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jforc\.gradle\caches\transforms-3\dc0ff0c0f7f922fb3d82758e32a9743a\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\0f6416215b2890dfe5cbae3a58c8b0c2\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\jforc\.gradle\caches\transforms-3\0f6416215b2890dfe5cbae3a58c8b0c2\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
+INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml
+		INJECTED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:5-66
+ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:6:5-66
 	android:name
-		ADDED from /home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:22-64
+		ADDED from E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:6:22-64

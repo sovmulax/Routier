@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/menu.dart';
 
 void main() {
@@ -28,18 +29,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Container(
-            child: Image.asset(
-              'assets/images/logo.png',
-              width: 50,
-            ),
-            margin: const EdgeInsets.only(right: 20),
-          )
-        ],
         title: Text(
           title,
           textAlign: TextAlign.center,
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const Fil())),
         ),
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
@@ -62,10 +61,11 @@ class DetailPub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
                 child: Text(
@@ -113,7 +113,9 @@ class DetailPub extends StatelessWidget {
               ),
             ],
           ),
-          margin: const EdgeInsets.fromLTRB(0, 40, 0, 5),
+          margin: const EdgeInsets.fromLTRB(0, 30, 0, 5),
+          width: MediaQuery.of(context).size.width * 1,
+
           //color: grayyy,
         )
       ],

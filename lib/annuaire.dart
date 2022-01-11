@@ -29,7 +29,10 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           Container(
-            child: Image.asset('assets/images/logo.png', width: 50,),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 50,
+            ),
             margin: const EdgeInsets.only(right: 20),
           )
         ],
@@ -37,18 +40,15 @@ class MyHomePage extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
         ),
-
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
       body: ListView(
-          children: const [Contact(), Contact(), Contact()],
-          
-        ),
+        children: const [Contact(), Contact(), Contact()],
+      ),
       drawer: const SideMenu(),
     );
   }
 }
-
 
 class Contact extends StatelessWidget {
   final String service = "Police";
@@ -63,29 +63,27 @@ class Contact extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.015,
-              ),
-              SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      child: Text(
-                        service,
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 30,
-                            fontFamily: fontStyle),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.015,
+                ),
+                SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        child: Text(
+                          service,
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontStyle: FontStyle.italic,
+                              fontSize: 30,
+                              fontFamily: fontStyle),
+                        ),
+                        margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                       ),
-                      color: Colors.white,
-                      margin: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                    ),
-                    Container(
-                      child: Text(
+                      Text(
                         numero,
                         style: TextStyle(
                             color: Colors.grey,
@@ -93,25 +91,35 @@ class Contact extends StatelessWidget {
                             fontSize: 30,
                             fontFamily: fontStyle),
                       ),
-                      color: Colors.white,
-                    ),
-                    Container(
-                      child: const Icon(Icons.phone, color: Colors.grey, size: 30,),
-                      margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                    ),
-                  ],
+                      Container(
+                        child: const Icon(
+                          Icons.phone,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                        margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                      ),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width * 1,
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
-                width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.05,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.015,
+                ),
+              ],
+            ),
+            width: MediaQuery.of(context).size.width * 1,
+            height: MediaQuery.of(context).size.height * 0.09,
+            margin: const EdgeInsets.fromLTRB(0, 35, 0, 0),
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey,
+                  width: 1.0,
+                ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.015,
-              ),
-            ],
-          ),
-          width: MediaQuery.of(context).size.width * 1,
-          height: MediaQuery.of(context).size.height * 0.08,
-          margin: const EdgeInsets.fromLTRB(0, 35, 0, 10),
+            )
         )
       ],
     );

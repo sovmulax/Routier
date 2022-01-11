@@ -13,7 +13,7 @@
 11    <application
 11-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-32:19
 12        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-12-->[androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-2/files-2.1/5f663b08eec19eef9a9d1af662d9025e/core-1.6.0/AndroidManifest.xml:24:18-86
+12-->[androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
 13        android:icon="@mipmap/logo"
 13-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:5:9-36
 14        android:label="Le Routier" >

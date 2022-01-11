@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'dart:async';
-import 'actualité/fil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,7 +59,7 @@ class StateScreen extends State<SplashScreen> {
   //Method allowing us to access the afterSplash page
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Fil()));
+        context, MaterialPageRoute(builder: (context) => const Connecter()));
   }
 
   //Overriding the build function of StateScreen

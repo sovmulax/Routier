@@ -1,4 +1,4 @@
-#Tue Jan 04 16:51:38 GMT 2022
+#Tue Jan 11 16:09:48 GMT 2022
 base.0=/home/geoffroy/Documents/Git/Routier/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

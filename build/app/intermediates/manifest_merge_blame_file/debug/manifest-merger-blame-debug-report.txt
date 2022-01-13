@@ -18,11 +18,7 @@
 16    <application
 16-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:3:4-32:19
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-<<<<<<< HEAD
 17-->[androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-=======
-17-->[androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047
 18        android:debuggable="true"
 19        android:icon="@mipmap/logo"
 19-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:5:9-36
@@ -72,23 +68,16 @@
 43            android:name="flutterEmbedding"
 43-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:30:13-44
 44            android:value="2" />
-<<<<<<< HEAD
 44-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:31:13-30
-45    </application>
-46
-47</manifest>
-=======
-44-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:13-30
 45
 46        <activity
-46-->[:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-11:74
+46-->[:url_launcher_android] E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:8:9-11:74
 47            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-47-->[:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
+47-->[:url_launcher_android] E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:13-74
 48            android:exported="false"
-48-->[:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
+48-->[:url_launcher_android] E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:13-37
 49            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-49-->[:url_launcher_android] /home/geoffroy/Documents/Git/Routier/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-71
+49-->[:url_launcher_android] E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-71
 50    </application>
 51
 52</manifest>
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047

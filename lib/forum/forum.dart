@@ -45,20 +45,22 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 height: 20,
               ),
-              Center(
+              const Center(
                 child: Text(
                   "NOM DE LA COMMUNE",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              //Message(),
+              Expanded(
+                child: MessageSection(),
+              ),
             ],
           ),
         ),
@@ -73,4 +75,140 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Message {}
+class MessageSection extends StatelessWidget {
+  MessageSection({Key? key}) : super(key: key);
+
+  final List messages = [
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    },
+    {
+      'senderProfile': 'assets/images/logo.png',
+      'senderName': 'Luc G',
+      'message': 'Salut comment tu vas ?',
+      'date': '16:30',
+    }
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: messages.map((messages) {
+          return InkWell(
+            onTap: () {},
+            child: Container(
+              padding: const EdgeInsets.only(left: 15, right: 10, top: 15),
+              child: Row(
+                children: [
+                  Container(
+                    width: 55,
+                    height: 55,
+                    margin: const EdgeInsets.only(right: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            messages['senderProfile'],
+                          ),
+                        )),
+                  ),
+                  Expanded(
+                      child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                messages['senderName'],
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    messages['message'],
+                                    style: const TextStyle(
+                                      color: Colors.black87,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [Text(messages['date'])],
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 50),
+                      Container(
+                        color: Colors.grey[400],
+                        height: 0.5,
+                      )
+                    ],
+                  )),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}

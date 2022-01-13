@@ -3,6 +3,7 @@ import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
 import 'package:routier/forum.dart';
+import 'package:routier/forum/communeSelect.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class SideMenu extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Forum()));
+                      builder: (BuildContext context) => const CommuneSelect()));
             },
           ),
           ListTile(

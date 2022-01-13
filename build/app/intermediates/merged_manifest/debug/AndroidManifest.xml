@@ -42,14 +42,11 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-<<<<<<< HEAD
-=======
 
         <activity
             android:name="io.flutter.plugins.urllauncher.WebViewActivity"
             android:exported="false"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047
     </application>
 
 </manifest>

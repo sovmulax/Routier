@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Tue Jan 11 15:35:28 GMT 2022
-base.0=E\:\\ECOLE\\Licence 3 SIGL\\APP3\\app\\Routier\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-=======
-#Tue Jan 11 16:09:48 GMT 2022
+#Tue Jan 11 17:58:24 GMT 2022
 base.0=/home/geoffroy/Documents/Git/Routier/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047
 renamed.0=classes.dex
 path.0=classes.dex

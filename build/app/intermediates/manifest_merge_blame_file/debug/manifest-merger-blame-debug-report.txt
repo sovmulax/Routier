@@ -12,72 +12,62 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:6:5-66
-14-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\debug\AndroidManifest.xml:6:22-64
+14-->/home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/home/geoffroy/Documents/Git/Routier/android/app/src/debug/AndroidManifest.xml:6:22-64
 15
 16    <application
-16-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:3:4-32:19
+16-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:3:4-32:19
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-<<<<<<< HEAD
-17-->[androidx.core:core:1.6.0] C:\Users\jforc\.gradle\caches\transforms-3\900fbfc85fc05e2fb1b527d73fc358a1\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-=======
 17-->[androidx.core:core:1.6.0] /home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047
 18        android:debuggable="true"
 19        android:icon="@mipmap/logo"
-19-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:5:9-36
+19-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:5:9-36
 20        android:label="Le Routier" >
-20-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:4:9-35
+20-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:4:9-35
 21        <activity
-21-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:6:9-27:20
+21-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:6:9-27:20
 22            android:name="com.example.routier.MainActivity"
-22-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:7:13-41
+22-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:7:13-41
 23            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-23-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:10:13-163
+23-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:10:13-163
 24            android:hardwareAccelerated="true"
-24-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:11:13-47
+24-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:11:13-47
 25            android:launchMode="singleTop"
-25-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:8:13-43
+25-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:8:13-43
 26            android:theme="@style/LaunchTheme"
-26-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:9:13-47
+26-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:9:13-47
 27            android:windowSoftInputMode="adjustResize" >
-27-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:12:13-55
+27-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:12:13-55
 28            <meta-data
-28-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:14:13-17:17
+28-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:14:13-17:17
 29                android:name="io.flutter.embedding.android.NormalTheme"
-29-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:15:15-70
+29-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:15:15-70
 30                android:resource="@style/NormalTheme" />
-30-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:16:15-52
+30-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:16:15-52
 31            <meta-data
-31-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:19:13-22:17
+31-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:19:13-22:17
 32                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-32-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:20:15-79
+32-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:20:15-79
 33                android:resource="@drawable/launch_background" />
-33-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:21:15-61
+33-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:21:15-61
 34
 35            <intent-filter>
-35-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:23:13-26:29
+35-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:23:13-26:29
 36                <action android:name="android.intent.action.MAIN" />
-36-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:24:17-68
-36-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:24:25-66
+36-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:17-68
+36-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:24:25-66
 37
 38                <category android:name="android.intent.category.LAUNCHER" />
-38-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:25:17-76
-38-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:25:27-74
+38-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:17-76
+38-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:25:27-74
 39            </intent-filter>
 40        </activity>
 41
 42        <meta-data
-42-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:29:9-31:33
+42-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:29:9-31:33
 43            android:name="flutterEmbedding"
-43-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:30:13-44
+43-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:30:13-44
 44            android:value="2" />
-<<<<<<< HEAD
-44-->E:\ECOLE\Licence 3 SIGL\APP3\app\Routier\android\app\src\main\AndroidManifest.xml:31:13-30
-45    </application>
-46
-47</manifest>
-=======
 44-->/home/geoffroy/Documents/Git/Routier/android/app/src/main/AndroidManifest.xml:31:13-30
 45
 46        <activity
@@ -91,4 +81,3 @@
 50    </application>
 51
 52</manifest>
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047

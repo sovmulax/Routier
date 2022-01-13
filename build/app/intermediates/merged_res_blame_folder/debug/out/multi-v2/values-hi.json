@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\ECOLE\\Licence 3 SIGL\\APP3\\app\\Routier\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hi\\values-hi.xml",
+            "outputFile": "/home/geoffroy/Documents/Git/Routier/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\jforc\\.gradle\\caches\\transforms-3\\900fbfc85fc05e2fb1b527d73fc358a1\\transformed\\core-1.6.0\\res\\values-hi\\values-hi.xml",
-=======
                     "source": "/home/geoffroy/.gradle/caches/transforms-3/900fbfc85fc05e2fb1b527d73fc358a1/transformed/core-1.6.0/res/values-hi/values-hi.xml",
->>>>>>> 429d8152597e4063fd040ad14b6b4479608a5047
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

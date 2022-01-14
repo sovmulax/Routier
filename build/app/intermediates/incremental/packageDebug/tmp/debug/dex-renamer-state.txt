@@ -1,4 +1,4 @@
-#Thu Jan 13 11:40:58 GMT 2022
+#Fri Jan 14 12:05:16 GMT 2022
 base.0=E\:\\ECOLE\\Licence 3 SIGL\\APP3\\app\\Routier\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -45,17 +45,17 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: [
-              const SizedBox(
+            children: const [
+              SizedBox(
                 height: 20,
               ),
-              const Center(
+              Center(
                 child: Text(
                   "NOM DE LA COMMUNE",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
               Expanded(
@@ -236,7 +236,7 @@ class BottomSection extends StatelessWidget {
       elevation: 10,
       child: Container(
         //height: 80,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         //color: const Color.fromRGBO(21, 106, 155, 1),
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -349,7 +349,8 @@ class ChatingSection extends StatelessWidget {
               description: "Least their she you now above going stand forth",
             ),
             TextMessage(
-              message: "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
+              message:
+                  "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
               date: "16:59",
               senderProfile: senderProfile,
               isReceiver: 1,
@@ -452,11 +453,11 @@ class TextMessage extends StatelessWidget {
               height: 55,
               decoration: isReceiver == 1
                   ? const BoxDecoration(
-                      color: Colors.white,
+                      color: Color.fromRGBO(21, 106, 155, 1),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12),
                         topRight: Radius.circular(12),
-                        bottomLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(15),
                       ),
                     )
                   : const BoxDecoration(
@@ -464,15 +465,13 @@ class TextMessage extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(15),
                         topRight: Radius.circular(15),
-                        bottomRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(12),
                       ),
                     ),
               child: Text(
                 message,
-                style: TextStyle(
-                  color: isReceiver == 1
-                      ? const Color.fromRGBO(21, 106, 155, 1)
-                      : Colors.white,
+                style: const TextStyle(
+                  color: Colors.white,
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
                 ),
@@ -486,7 +485,7 @@ class TextMessage extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.check,
-                        color: const Color.fromRGBO(21, 106, 155, 1),
+                        color: Color.fromRGBO(21, 106, 155, 1),
                         size: 13.0,
                       ),
                       const SizedBox(
@@ -494,8 +493,8 @@ class TextMessage extends StatelessWidget {
                       ),
                       Text(
                         date,
-                        style: TextStyle(
-                          color: const Color.fromRGBO(21, 106, 155, 1),
+                        style: const TextStyle(
+                          color: Color.fromRGBO(21, 106, 155, 1),
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
@@ -573,6 +572,8 @@ class ImageMessage extends StatelessWidget {
                     image: AssetImage(image),
                     fit: BoxFit.cover,
                   ),
+                  border:
+                      Border.all(color: const Color.fromRGBO(21, 106, 155, 1)),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(22.0),
                   ),
@@ -582,7 +583,7 @@ class ImageMessage extends StatelessWidget {
                 margin: const EdgeInsets.only(
                   top: 8,
                   right: 25,
-                  bottom: 10,
+                  bottom: 5,
                 ),
                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
                 height: 55,

@@ -1,7 +1,4 @@
-2022/01/14-08:11:21.471 1bf4 Reusing MANIFEST C:\Users\jforc\AppData\Local\Temp\flutter_tools.53413a79\flutter_tools_chrome_device.6ec36f5c\Default\Site Characteristics Database/MANIFEST-000001
-2022/01/14-08:11:21.475 1bf4 Recovering log #3
-2022/01/14-08:11:21.475 1bf4 Level-0 table #6: started
-2022/01/14-08:11:22.043 1bf4 Level-0 table #6: 336 bytes OK
-2022/01/14-08:11:22.043 1bf4 Recovering log #6
-2022/01/14-08:11:22.044 1bf4 Reusing old log C:\Users\jforc\AppData\Local\Temp\flutter_tools.53413a79\flutter_tools_chrome_device.6ec36f5c\Default\Site Characteristics Database/000006.log 
-2022/01/14-08:11:22.348 1bf4 Delete type=0 #3
+2022/01/14-16:55:09.752 2158 Reusing MANIFEST C:\Users\jforc\AppData\Local\Temp\flutter_tools.89e8a38f\flutter_tools_chrome_device.6c142fb0\Default\Site Characteristics Database/MANIFEST-000001
+2022/01/14-16:55:09.754 2158 Recovering log #6
+2022/01/14-16:55:09.754 2158 Reusing old log C:\Users\jforc\AppData\Local\Temp\flutter_tools.89e8a38f\flutter_tools_chrome_device.6c142fb0\Default\Site Characteristics Database/000006.log 
+2022/01/14-16:55:09.754 2158 Delete type=0 #3

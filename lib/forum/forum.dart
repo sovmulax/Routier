@@ -64,153 +64,7 @@ class MyHomePage extends StatelessWidget {
             ],
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {},
-        //   child: const Icon(
-        //     Icons.create,
-        //   ),
-        //   backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
-        // ),
         drawer: const SideMenu());
-  }
-}
-
-class MessageSection extends StatelessWidget {
-  MessageSection({Key? key}) : super(key: key);
-
-  final List messages = [
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    },
-    {
-      'senderProfile': 'assets/images/logo.png',
-      'senderName': 'Luc G',
-      'message': 'Salut comment tu vas ?',
-      'date': '16:30',
-    }
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: messages.map((messages) {
-          return InkWell(
-            onTap: () {},
-            child: Container(
-              padding: const EdgeInsets.only(left: 15, right: 10, top: 15),
-              child: Row(
-                children: [
-                  Container(
-                    width: 55,
-                    height: 55,
-                    margin: const EdgeInsets.only(right: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(
-                            messages['senderProfile'],
-                          ),
-                        )),
-                  ),
-                  Expanded(
-                      child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                messages['senderName'],
-                                style: const TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                              Wrap(
-                                direction: Axis.horizontal,
-                                children: [
-                                  Text(
-                                    messages['message'],
-                                    style: const TextStyle(
-                                      color: Colors.black87,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [Text(messages['date'])],
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 50),
-                      Container(
-                        color: Colors.grey[400],
-                        height: 0.5,
-                      )
-                    ],
-                  )),
-                ],
-              ),
-            ),
-          );
-        }).toList(),
-      ),
-    );
   }
 }
 
@@ -221,8 +75,8 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.black,
-      bottomNavigationBar: BottomSection(),
       body: ChatingSection(),
+      bottomNavigationBar: BottomSection(),
     );
   }
 }
@@ -235,20 +89,17 @@ class BottomSection extends StatelessWidget {
     return BottomAppBar(
       elevation: 10,
       child: Container(
-        //height: 80,
         padding: const EdgeInsets.all(20),
-        //color: const Color.fromRGBO(21, 106, 155, 1),
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: Container(
-                  height: 43,
+                  height: 40,
                   decoration: BoxDecoration(
                     border: Border.all(
                         color: const Color.fromRGBO(21, 106, 155, 1)),
-                    //color: const Color.fromRGBO(21, 106, 155, 1),
                     borderRadius: const BorderRadius.all(Radius.circular(30)),
                   ),
                   child: Row(
@@ -319,6 +170,7 @@ class ChatingSection extends StatelessWidget {
               message: "Months on ye at by esteem",
               date: "17:19",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 1,
               isDirect: 0,
             ),
@@ -326,6 +178,7 @@ class ChatingSection extends StatelessWidget {
               message: "Seen you eyes son show",
               date: "17:13",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 0,
               isDirect: 0,
             ),
@@ -333,6 +186,7 @@ class ChatingSection extends StatelessWidget {
               message: "As tolerably recommend shameless",
               date: "17:10",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 0,
               isDirect: 1,
             ),
@@ -340,19 +194,20 @@ class ChatingSection extends StatelessWidget {
               message: "She although cheerful perceive",
               date: "17:10",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 1,
               isDirect: 0,
             ),
-            const ImageMessage(
-              image: 'assets/images/logo.png',
-              date: "17:09",
-              description: "Least their she you now above going stand forth",
-            ),
+            // const ImageMessage(
+            //   image: 'assets/images/logo.png',
+            //   date: "17:09",
+            // ),
             TextMessage(
               message:
-                  "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
+                  "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
               date: "16:59",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 1,
               isDirect: 0,
             ),
@@ -360,6 +215,7 @@ class ChatingSection extends StatelessWidget {
               message: "Under as seems we me stuff",
               date: "16:53",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 0,
               isDirect: 0,
             ),
@@ -367,6 +223,7 @@ class ChatingSection extends StatelessWidget {
               message: "Next it draw in draw much bred",
               date: "16:50",
               senderProfile: senderProfile,
+              senderName: "Luc G",
               isReceiver: 0,
               isDirect: 1,
             ),
@@ -374,6 +231,39 @@ class ChatingSection extends StatelessWidget {
               message: "Sure that that way gave",
               date: "16:48",
               senderProfile: senderProfile,
+              senderName: "Luc G",
+              isReceiver: 1,
+              isDirect: 0,
+            ),
+            TextMessage(
+              message: "Months on ye at by esteem",
+              date: "17:19",
+              senderProfile: senderProfile,
+              senderName: "Luc G",
+              isReceiver: 1,
+              isDirect: 0,
+            ),
+            TextMessage(
+              message: "Seen you eyes son show",
+              date: "17:13",
+              senderProfile: senderProfile,
+              senderName: "Luc G",
+              isReceiver: 0,
+              isDirect: 0,
+            ),
+            TextMessage(
+              message: "As tolerably recommend shameless",
+              date: "17:10",
+              senderProfile: senderProfile,
+              senderName: "Luc G",
+              isReceiver: 0,
+              isDirect: 1,
+            ),
+            TextMessage(
+              message: "She although cheerful perceive",
+              date: "17:10",
+              senderProfile: senderProfile,
+              senderName: "Geoffroy",
               isReceiver: 1,
               isDirect: 0,
             ),
@@ -386,7 +276,7 @@ class ChatingSection extends StatelessWidget {
 }
 
 class TextMessage extends StatelessWidget {
-  final String message, date, senderProfile;
+  final String message, date, senderProfile, senderName;
   final int isReceiver, isDirect;
 
   const TextMessage({
@@ -394,6 +284,7 @@ class TextMessage extends StatelessWidget {
     required this.message,
     required this.date,
     required this.senderProfile,
+    required this.senderName,
     required this.isReceiver,
     required this.isDirect,
   }) : super(key: key);
@@ -449,8 +340,8 @@ class TextMessage extends StatelessWidget {
                   : const EdgeInsets.only(
                       left: 20,
                     ),
-              padding: const EdgeInsets.all(6),
-              height: 55,
+              padding:
+                  const EdgeInsets.only(left: 6, top: 15, right: 6, bottom: 15),
               decoration: isReceiver == 1
                   ? const BoxDecoration(
                       color: Color.fromRGBO(21, 106, 155, 1),
@@ -468,13 +359,33 @@ class TextMessage extends StatelessWidget {
                         bottomLeft: Radius.circular(12),
                       ),
                     ),
-              child: Text(
-                message,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                ),
+              child: Column(
+                crossAxisAlignment: isReceiver == 1
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.end,
+                children: [
+                  isReceiver == 1
+                      ? Text(
+                          senderName,
+                          style: const TextStyle(
+                            color: Colors.yellow,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : const SizedBox(height: 0),
+                  isReceiver == 1
+                      ? const SizedBox(height: 10)
+                      : const SizedBox(height: 0),
+                  Text(
+                    message,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -537,98 +448,86 @@ class TextMessage extends StatelessWidget {
   }
 }
 
-class ImageMessage extends StatelessWidget {
-  final String image, date, description;
+// class ImageMessage extends StatelessWidget {
+//   final String image, date;
 
-  const ImageMessage({
-    Key? key,
-    required this.image,
-    required this.date,
-    required this.description,
-  }) : super(key: key);
+//   const ImageMessage({
+//     Key? key,
+//     required this.image,
+//     required this.date,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(
-            right: 16,
-          ),
-          width: 45,
-          height: 45,
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 26,
-                  top: 5,
-                ),
-                height: 150,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.cover,
-                  ),
-                  border:
-                      Border.all(color: const Color.fromRGBO(21, 106, 155, 1)),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(22.0),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  top: 8,
-                  right: 25,
-                  bottom: 5,
-                ),
-                padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-                height: 55,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                ),
-                child: Wrap(children: [
-                  Text(
-                    description,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(21, 106, 155, 1),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ]),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          width: 60,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: const [
-              Icon(
-                Icons.check,
-                color: Color.fromRGBO(21, 106, 155, 1),
-                size: 13.0,
-              ),
-              SizedBox(width: 7.0),
-              Text(
-                "17:14",
-                style: TextStyle(
-                  color: Color.fromRGBO(21, 106, 155, 1),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        )
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         Container(
+//           margin: const EdgeInsets.only(
+//             right: 16,
+//           ),
+//           width: 45,
+//           height: 45,
+//         ),
+//         Expanded(
+//           child: Column(
+//             children: [
+//               Container(
+//                 margin: const EdgeInsets.only(
+//                   right: 26,
+//                   top: 5,
+//                 ),
+//                 height: 150,
+//                 decoration: BoxDecoration(
+//                   image: DecorationImage(
+//                     image: AssetImage(image),
+//                     fit: BoxFit.contain,
+//                   ),
+//                   border:
+//                       Border.all(color: const Color.fromRGBO(21, 106, 155, 1)),
+//                   borderRadius: const BorderRadius.all(
+//                     Radius.circular(22.0),
+//                   ),
+//                 ),
+//               ),
+//               Container(
+//                 margin: const EdgeInsets.only(
+//                   top: 8,
+//                   right: 25,
+//                   bottom: 5,
+//                 ),
+//                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+//                 height: 15,
+//                 decoration: const BoxDecoration(
+//                   color: Colors.white,
+//                   borderRadius: BorderRadius.all(Radius.circular(12)),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//         SizedBox(
+//           width: 60,
+//           child: Row(
+//             crossAxisAlignment: CrossAxisAlignment.end,
+//             children: const [
+//               Icon(
+//                 Icons.check,
+//                 color: Color.fromRGBO(21, 106, 155, 1),
+//                 size: 13.0,
+//               ),
+//               SizedBox(width: 7.0),
+//               Text(
+//                 "17:14",
+//                 style: TextStyle(
+//                   color: Color.fromRGBO(21, 106, 155, 1),
+//                   fontSize: 12,
+//                   fontWeight: FontWeight.w500,
+//                 ),
+//               ),
+//             ],
+//           ),
+//         )
+//       ],
+//     );
+//   }
+// }

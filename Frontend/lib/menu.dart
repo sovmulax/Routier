@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
-import 'package:routier/forum.dart';
 import 'package:routier/forum/commune_select.dart';
 
 import 'forum/commune_select.dart';

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4deb2ubuntu5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 17 jan. 2022 à 07:44
--- Version du serveur :  8.0.27-0ubuntu0.21.10.1
--- Version de PHP : 8.0.8
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 18 jan. 2022 à 15:00
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,14 @@ SET time_zone = "+00:00";
 -- Structure de la table `actualité`
 --
 
-CREATE TABLE `actualité` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `actualité`;
+CREATE TABLE IF NOT EXISTS `actualité` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` text COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `source` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `source` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -40,11 +42,13 @@ CREATE TABLE `actualité` (
 -- Structure de la table `annuaire`
 --
 
-CREATE TABLE `annuaire` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `annuaire`;
+CREATE TABLE IF NOT EXISTS `annuaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom_service` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `numero` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `numero` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -52,25 +56,29 @@ CREATE TABLE `annuaire` (
 -- Structure de la table `avatar`
 --
 
-CREATE TABLE `avatar` (
-  `id` int NOT NULL,
-  `image` varchar(200) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS `avatar`;
+CREATE TABLE IF NOT EXISTS `avatar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Calendrier`
+-- Structure de la table `calendrier`
 --
 
-CREATE TABLE `Calendrier` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `calendrier`;
+CREATE TABLE IF NOT EXISTS `calendrier` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `source` text COLLATE utf8_unicode_ci NOT NULL,
   `lieu` text COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `date` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `date` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -78,10 +86,12 @@ CREATE TABLE `Calendrier` (
 -- Structure de la table `communes`
 --
 
-CREATE TABLE `communes` (
-  `id_commune` int NOT NULL,
-  `nom` varchar(200) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS `communes`;
+CREATE TABLE IF NOT EXISTS `communes` (
+  `id_commune` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_commune`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -89,11 +99,14 @@ CREATE TABLE `communes` (
 -- Structure de la table `forum`
 --
 
-CREATE TABLE `forum` (
-  `id_user` int NOT NULL,
+DROP TABLE IF EXISTS `forum`;
+CREATE TABLE IF NOT EXISTS `forum` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_commune` int(11) NOT NULL,
   `date` timestamp NOT NULL,
-  `message` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -101,104 +114,14 @@ CREATE TABLE `forum` (
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `e-mail` varchar(200) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `actualité`
---
-ALTER TABLE `actualité`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `annuaire`
---
-ALTER TABLE `annuaire`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `avatar`
---
-ALTER TABLE `avatar`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Calendrier`
---
-ALTER TABLE `Calendrier`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `communes`
---
-ALTER TABLE `communes`
-  ADD PRIMARY KEY (`id_commune`);
-
---
--- Index pour la table `forum`
---
-ALTER TABLE `forum`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `actualité`
---
-ALTER TABLE `actualité`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `annuaire`
---
-ALTER TABLE `annuaire`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `avatar`
---
-ALTER TABLE `avatar`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `Calendrier`
---
-ALTER TABLE `Calendrier`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `communes`
---
-ALTER TABLE `communes`
-  MODIFY `id_commune` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `forum`
---
-ALTER TABLE `forum`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  `e-mail` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Inscription extends StatefulWidget
-{
+class Inscription extends StatefulWidget {
   const Inscription({Key? key}) : super(key: key);
 
   @override
@@ -12,7 +11,10 @@ class _InscriptionState extends State<Inscription> {
   final _keyForm = GlobalKey<FormState>();
 
   String mdp = '', confMdp = '', email = '', message = '';
-  bool errorEmail = false, errorMdp = false, errorMdpConf = false, errorPass = false;
+  bool errorEmail = false,
+      errorMdp = false,
+      errorMdpConf = false,
+      errorPass = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,11 @@ class _InscriptionState extends State<Inscription> {
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          color: Colors.white,
-            onPressed: (){
+            color: Colors.white,
+            onPressed: () {
               Navigator.pushNamed(context, '/connexion');
             },
-            icon: const Icon(Icons.arrow_back)
-        ),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -42,226 +43,186 @@ class _InscriptionState extends State<Inscription> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(message, style: const TextStyle(color: Colors.red, fontSize: 15.0, ), textAlign: TextAlign.center,),
+                  Text(
+                    message,
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(width: 0, color: Colors.transparent),
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                     child: TextFormField(
-                        maxLines: 1,
-                        minLines: 1,
-                        style: const TextStyle(
-                            fontSize: 25.0
-                        ),
-                        decoration:  InputDecoration(
-                            focusedBorder:  OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
-                                borderSide: const BorderSide(
-                                    width: 2,
-                                    color: Colors.black54
-                                )
-                            ),
-                            errorBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.red
-                                )
-                            ),
-                            contentPadding: const EdgeInsets.all(20.0),
-                            hintStyle: const TextStyle(
-                              color: Colors.black54,
-                              fontSize: 20.0,
-                            ),
-                            hintText: 'exemple@gmail.com',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
+                      maxLines: 1,
+                      minLines: 1,
+                      style: const TextStyle(fontSize: 14),
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
-                                color: Colors.white,
-                                width: 2.0,
-                              ),
-                            )
-                        ),
-                        validator: (val) {
-                          if(val!.isEmpty){
-                            setState(() {
-                              errorEmail = true;
-                            });
-                          }
-                          else
-                          {
-                            setState(() {
-                              errorEmail = false;
-                            });
-                          }
-                        },
-                    ),
-                  ),
-                  const SizedBox(height: 10.0,),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        border: Border.all(width: 0, color: Colors.transparent),
-                        color: Colors.white
-                    ),
-                    child: TextFormField(
-                        maxLines: 1,
-                        minLines: 1,
-                        style: const TextStyle(
-                            fontSize: 25.0
-                        ),
-                        obscureText: true,
-                        decoration:  InputDecoration(
-                          focusedBorder:  OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(
-                                  width: 2,
-                                  color: Colors.black54
-                              )
-                          ),
+                                  width: 2, color: Colors.black54)),
                           errorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2,
-                                  color: Colors.red
-                              )
-                          ),
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.red)),
                           contentPadding: const EdgeInsets.all(20.0),
                           hintStyle: const TextStyle(
                             color: Colors.black54,
-                            fontSize: 20.0,
+                            fontSize: 14,
                           ),
-                          hintText: 'Mot de passe',
+                          hintText: 'exemple@gmail.com',
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        validator: (val) {
-                          if(val!.isEmpty)
-                          {
-                            setState(() {
-                              errorMdp = true;
-                            });
-                          }
-                          else
-                          {
-                            setState(() {
-                              errorMdp = false;
-                            });
-                          }
-                        },
-                      onChanged: (val)=> mdp=val,
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.white,
+                              width: 2.0,
+                            ),
+                          )),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          setState(() {
+                            errorEmail = true;
+                          });
+                        } else {
+                          setState(() {
+                            errorEmail = false;
+                          });
+                        }
+                      },
                     ),
                   ),
-                  const SizedBox(height: 10.0,),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(width: 0, color: Colors.transparent),
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                     child: TextFormField(
-                        maxLines: 1,
-                        minLines: 1,
-                        style: const TextStyle(
-                            fontSize: 25.0
+                      maxLines: 1,
+                      minLines: 1,
+                      style: const TextStyle(fontSize: 14),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                                width: 2, color: Colors.black54)),
+                        errorBorder: const OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 2, color: Colors.red)),
+                        contentPadding: const EdgeInsets.all(20.0),
+                        hintStyle: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 14,
                         ),
-                        obscureText: true,
-                        decoration:  InputDecoration(
-                          focusedBorder:  OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
-                              borderSide: const BorderSide(
-                                  width: 2,
-                                  color: Colors.black54
-                              )
-                          ),
-                          errorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2,
-                                  color: Colors.red
-                              )
-                          ),
-                          contentPadding: const EdgeInsets.all(20.0),
-                          hintStyle: const TextStyle(
-                            color: Colors.black54,
-                            fontSize: 20.0,
-                          ),
-                          hintText: 'Confirmer mot de passe',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
+                        hintText: 'Mot de passe',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        validator: (val) {
-                          if(mdp !=confMdp)
-                          {
-                            setState(() {
-                              errorPass = true;
-                            });
-                          }
-                          else if(mdp == confMdp)
-                            {
-                              errorPass = false;
-                            }
-                          else if(val!.isEmpty)
-                          {
-                            setState(() {
-                              errorMdpConf = true;
-                            });
-                          }
-                          else
-                          {
-                            setState(() {
-                              errorMdpConf = false;
-                            });
-                          }
-                        },
-                      onChanged: (val)=> confMdp = val,
+                      ),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          setState(() {
+                            errorMdp = true;
+                          });
+                        } else {
+                          setState(() {
+                            errorMdp = false;
+                          });
+                        }
+                      },
+                      onChanged: (val) => mdp = val,
                     ),
                   ),
-                  const SizedBox(height: 10.0,),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(width: 0, color: Colors.transparent),
+                        color: Colors.white),
+                    child: TextFormField(
+                      maxLines: 1,
+                      minLines: 1,
+                      style: const TextStyle(fontSize: 14),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                                width: 2, color: Colors.black54)),
+                        errorBorder: const OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 2, color: Colors.red)),
+                        contentPadding: const EdgeInsets.all(20.0),
+                        hintStyle: const TextStyle(
+                          color: Colors.black54,
+                          fontSize: 14,
+                        ),
+                        hintText: 'Confirmer mot de passe',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      validator: (val) {
+                        if (mdp != confMdp) {
+                          setState(() {
+                            errorPass = true;
+                          });
+                        } else if (mdp == confMdp) {
+                          errorPass = false;
+                        } else if (val!.isEmpty) {
+                          setState(() {
+                            errorMdpConf = true;
+                          });
+                        } else {
+                          setState(() {
+                            errorMdpConf = false;
+                          });
+                        }
+                      },
+                      onChanged: (val) => confMdp = val,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30.0,
+                  ),
                   ElevatedButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)
-                          )
-                      ),
-                      onPressed: (){
-                        if(_keyForm.currentState!.validate())
-                        {
-                          if(errorMdp || errorEmail || errorMdpConf)
-                            {
-                              setState(() {
-                                message = "Formulaire incomplet";
-                              });
-                            }
-                          else if(errorPass)
-                            {
-                              setState(() {
-                                message = "mots de passe incompatible";
-                              });
-                            }
-                          else
-                            {
-                              message = '';
-                            }
+                              borderRadius: BorderRadius.circular(10))),
+                      onPressed: () {
+                        if (_keyForm.currentState!.validate()) {
+                          if (errorMdp || errorEmail || errorMdpConf) {
+                            setState(() {
+                              message = "Formulaire incomplet";
+                            });
+                          } else if (errorPass) {
+                            setState(() {
+                              message = "mots de passe incompatible";
+                            });
+                          } else {
+                            message = '';
+                          }
                         }
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Text(
                           "Inscription",
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.white
-                          ),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
-                      )
-                  ),
+                      )),
                 ],
-              )
-          ),
+              )),
         ),
       ),
     );

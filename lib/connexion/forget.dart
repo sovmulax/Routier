@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Forget extends StatefulWidget
-{
+class Forget extends StatefulWidget {
   const Forget({Key? key}) : super(key: key);
 
   @override
@@ -14,14 +13,16 @@ class _Forget extends State<Forget> {
   String email = '', message = '';
   bool errorEmail = false;
   final SnackBar _snackBar = const SnackBar(
-      content: Text("Mail de recupperation envoye", style: TextStyle(color: Color.fromRGBO(21, 106, 155, 1),fontSize: 18.0),),
+    content: Text(
+      "Mail de recupperation envoye",
+      style: TextStyle(color: Color.fromRGBO(21, 106, 155, 1), fontSize: 18.0),
+    ),
     duration: Duration(seconds: 5),
     backgroundColor: Colors.white,
     padding: EdgeInsets.all(10.0),
   );
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       extendBodyBehindAppBar: true,
@@ -32,11 +33,10 @@ class _Forget extends State<Forget> {
         automaticallyImplyLeading: false,
         leading: IconButton(
             color: Colors.white,
-            onPressed: (){
+            onPressed: () {
               Navigator.pushNamed(context, '/connexion');
             },
-            icon: const Icon(Icons.arrow_back)
-        ),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -48,56 +48,51 @@ class _Forget extends State<Forget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(message, style: const TextStyle(color: Colors.red, fontSize: 15.0, ), textAlign: TextAlign.center,),
+                  Text(
+                    message,
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(width: 0, color: Colors.transparent),
-                        color: Colors.white
-                    ),
+                        color: Colors.white),
                     child: TextFormField(
                       maxLines: 1,
                       minLines: 1,
-                      style: const TextStyle(
-                          fontSize: 25.0
-                      ),
-                      decoration:  InputDecoration(
-                          focusedBorder:  OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
+                      style: const TextStyle(fontSize: 14),
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
-                                  width: 2,
-                                  color: Colors.black54
-                              )
-                          ),
+                                  width: 2, color: Colors.black54)),
                           errorBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  width: 2,
-                                  color: Colors.red
-                              )
-                          ),
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.red)),
                           contentPadding: const EdgeInsets.all(20.0),
                           hintStyle: const TextStyle(
                             color: Colors.black54,
-                            fontSize: 20.0,
+                            fontSize: 14,
                           ),
                           hintText: 'exemple@gmail.com',
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
                               color: Colors.white,
                               width: 2.0,
                             ),
-                          )
-                      ),
+                          )),
                       validator: (val) {
-                        if(val!.isEmpty){
+                        if (val!.isEmpty) {
                           setState(() {
                             errorEmail = true;
                           });
-                        }
-                        else
-                        {
+                        } else {
                           setState(() {
                             errorEmail = false;
                           });
@@ -105,27 +100,24 @@ class _Forget extends State<Forget> {
                       },
                     ),
                   ),
-                  const SizedBox(height: 10.0,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   ElevatedButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)
-                          )
-                      ),
-                      onPressed: (){
-                        if(_keyForm.currentState!.validate())
-                        {
-                          if(errorEmail)
-                          {
+                              borderRadius: BorderRadius.circular(10))),
+                      onPressed: () {
+                        if (_keyForm.currentState!.validate()) {
+                          if (errorEmail) {
                             setState(() {
                               message = "Formulaire incomplet";
                             });
-                          }
-                          else
-                          {
+                          } else {
                             message = '';
-                            ScaffoldMessenger.of(context).showSnackBar(_snackBar);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(_snackBar);
                             Navigator.pushNamed(context, '/connexion');
                           }
                         }
@@ -134,16 +126,11 @@ class _Forget extends State<Forget> {
                         padding: EdgeInsets.all(15.0),
                         child: Text(
                           "Reccuperer mon compte",
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.white
-                          ),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
-                      )
-                  ),
+                      )),
                 ],
-              )
-          ),
+              )),
         ),
       ),
     );

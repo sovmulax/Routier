@@ -323,7 +323,7 @@ class TextMessage extends StatelessWidget {
                         date,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -369,7 +369,7 @@ class TextMessage extends StatelessWidget {
                           senderName,
                           style: const TextStyle(
                             color: Colors.yellow,
-                            fontSize: 12,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
                         )
@@ -381,7 +381,7 @@ class TextMessage extends StatelessWidget {
                     message,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -406,7 +406,7 @@ class TextMessage extends StatelessWidget {
                         date,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -520,7 +520,7 @@ class TextMessage extends StatelessWidget {
 //                 "17:14",
 //                 style: TextStyle(
 //                   color: Color.fromRGBO(21, 106, 155, 1),
-//                   fontSize: 12,
+//                   fontSize: 14,
 //                   fontWeight: FontWeight.w500,
 //                 ),
 //               ),

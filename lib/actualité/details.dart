@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
 class DetailPub extends StatelessWidget {
   final String title = "Intitulé de l'article";
   final String text =
-      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
+      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
   final String source = "Source : XXXXXX XXX XXXXX";
   final String fontStyle = "Ubuntu";
 
@@ -70,14 +70,16 @@ class DetailPub extends StatelessWidget {
               SizedBox(
                 child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 40,
+                      fontSize: 24,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 1,
               ),
+              const SizedBox(height: 20),
               Container(
                 child: Image.asset('assets/images/octocat.png', height: 300),
                 width: MediaQuery.of(context).size.width * 1,
@@ -93,24 +95,27 @@ class DetailPub extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 20,
+                      fontSize: 14,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.90,
                 margin: const EdgeInsets.fromLTRB(5, 10, 5, 0),
               ),
+              const SizedBox(height: 10),
               Container(
                 child: Text(
                   source,
+                  textAlign: TextAlign.end,
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 25,
+                      fontSize: 14,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.98,
-                margin: const EdgeInsets.fromLTRB(2, 40, 0, 0),
+                margin: const EdgeInsets.fromLTRB(2, 40, 10, 0),
               ),
+              const SizedBox(height: 10),
             ],
           ),
           margin: const EdgeInsets.fromLTRB(0, 30, 0, 5),

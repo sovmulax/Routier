@@ -87,10 +87,11 @@ class Publication extends StatelessWidget {
               SizedBox(
                 child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 40,
+                      fontSize: 24,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 1,
@@ -113,7 +114,7 @@ class Publication extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.grey,
                             fontStyle: FontStyle.italic,
-                            fontSize: 30,
+                            fontSize: 18,
                             fontFamily: fontStyle),
                       ),
                       width: MediaQuery.of(context).size.width * 0.7,

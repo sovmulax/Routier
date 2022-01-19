@@ -40,7 +40,7 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
-      body: Column(
+      body: ListView(
         children: const [CDetail()],
       ),
       drawer: GestureDetector(
@@ -72,7 +72,7 @@ class MyHomePage extends StatelessWidget {
 class CDetail extends StatelessWidget {
   final String title = "Détails de l'Evenement";
   final String text =
-      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
+      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego,Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
   final String source = "Source : XXXXXX XXX XXXXX";
   final String fontStyle = "Ubuntu";
 
@@ -83,6 +83,7 @@ class CDetail extends StatelessWidget {
       children: [
         Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 child: Text(
@@ -90,7 +91,7 @@ class CDetail extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 25,
+                      fontSize: 16,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.98,
@@ -101,7 +102,7 @@ class CDetail extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 22,
+                      fontSize: 16,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.95,
@@ -114,7 +115,7 @@ class CDetail extends StatelessWidget {
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold,
-                      fontSize: 30,
+                      fontSize: 24,
                       fontFamily: fontStyle),
                 ),
                 margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -125,7 +126,7 @@ class CDetail extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 20,
+                      fontSize: 16,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.90,
@@ -137,7 +138,7 @@ class CDetail extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
-                      fontSize: 25,
+                      fontSize: 16,
                       fontFamily: fontStyle),
                 ),
                 width: MediaQuery.of(context).size.width * 0.98,

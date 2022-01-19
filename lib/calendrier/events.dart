@@ -91,7 +91,7 @@ class WEvents extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontStyle: FontStyle.italic,
-                                fontSize: 15,
+                                fontSize: 16,
                                 fontFamily: fontStyle),
                           ),
                           Text(
@@ -99,7 +99,7 @@ class WEvents extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontStyle: FontStyle.italic,
-                                fontSize: 30,
+                                fontSize: 24,
                                 fontFamily: fontStyle),
                           )
                         ],

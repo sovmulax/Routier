@@ -61,12 +61,9 @@ class MyHomePage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) =>
-                    const Forum()
-                  )
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => const Forum()));
               },
               child: const Text(
                 'Ouvrir le forum',
@@ -110,7 +107,7 @@ class ListeCommune extends State<Liste> {
           child: Text(
             value,
             style: const TextStyle(
-              fontSize: 20,
+              fontSize: 18,
             ),
           ),
         );

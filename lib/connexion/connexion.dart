@@ -53,23 +53,23 @@ class _Connexion extends State<Connexion> {
                       "Formulaire incomplet",
                       style: TextStyle(
                         color: Colors.red,
-                        fontSize: 15.0,
+                        fontSize: 14,
                       ),
                       textAlign: TextAlign.center,
                     ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(width: 0, color: Colors.transparent),
                         color: Colors.white),
                     child: TextFormField(
                         maxLines: 1,
                         minLines: 1,
-                        style: const TextStyle(fontSize: 25.0),
+                        style: const TextStyle(fontSize: 14),
                         decoration: InputDecoration(
                             focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(10),
                                 borderSide: const BorderSide(
                                     width: 2, color: Colors.black54)),
                             errorBorder: const OutlineInputBorder(
@@ -78,11 +78,11 @@ class _Connexion extends State<Connexion> {
                             contentPadding: const EdgeInsets.all(20.0),
                             hintStyle: const TextStyle(
                               color: Colors.black54,
-                              fontSize: 20.0,
+                              fontSize: 14,
                             ),
                             hintText: 'exemple@gmail.com',
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
                                 color: Colors.white,
                                 width: 2.0,
@@ -105,17 +105,17 @@ class _Connexion extends State<Connexion> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(width: 0, color: Colors.transparent),
                         color: Colors.white),
                     child: TextFormField(
                         maxLines: 1,
                         minLines: 1,
-                        style: const TextStyle(fontSize: 25.0),
+                        style: const TextStyle(fontSize: 14),
                         obscureText: true,
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(25),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
                                   width: 2, color: Colors.black54)),
                           errorBorder: const OutlineInputBorder(
@@ -124,11 +124,11 @@ class _Connexion extends State<Connexion> {
                           contentPadding: const EdgeInsets.all(20.0),
                           hintStyle: const TextStyle(
                             color: Colors.black54,
-                            fontSize: 20.0,
+                            fontSize: 14,
                           ),
                           hintText: 'Mot de passe',
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         validator: (val) {
@@ -144,13 +144,13 @@ class _Connexion extends State<Connexion> {
                         }),
                   ),
                   const SizedBox(
-                    height: 10.0,
+                    height: 30.0,
                   ),
                   ElevatedButton(
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20))),
+                              borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
                         if (_keyForm.currentState!.validate()) {
                           //Connexion
@@ -165,7 +165,7 @@ class _Connexion extends State<Connexion> {
                         padding: EdgeInsets.all(15.0),
                         child: Text(
                           "Connexion",
-                          style: TextStyle(fontSize: 20.0, color: Colors.white),
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       )),
                   const SizedBox(
@@ -177,8 +177,11 @@ class _Connexion extends State<Connexion> {
                       },
                       child: const Text(
                         "Mot de passe oublie",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       )),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
                   TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/inscription');
@@ -187,7 +190,7 @@ class _Connexion extends State<Connexion> {
                         "S'inscrire",
                         style: TextStyle(
                           color: Colors.black54,
-                          fontSize: 18.0,
+                          fontSize: 16,
                         ),
                       ))
                 ],

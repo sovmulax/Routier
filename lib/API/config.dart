@@ -6,9 +6,9 @@ import 'package:mysql1/mysql1.dart';
 // String appName = "Routier";
 
 var settings = ConnectionSettings(
-  host: '127.0.0.1',
+  host: '192.168.1.64',
   port: 3306,
-  user: 'root',
-  password: '',
+  user: 'evane',
+  password: 'root',
   db: 'routier',
 );

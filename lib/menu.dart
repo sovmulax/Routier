@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'package:routier/forum/commune_select.dart';
 
 import 'forum/commune_select.dart';
@@ -102,7 +103,7 @@ class SideMenu extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Fil()));
+                      builder: (BuildContext context) => const Connexion()));
             },
           ),
           

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routier/API/query.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'forget.dart';
 import 'inscription.dart';
@@ -33,6 +34,7 @@ class Connexion extends StatefulWidget {
 
 class _Connexion extends State<Connexion> {
   final _keyForm = GlobalKey<FormState>();
+  String mdp = '', email = '', message = '';
   bool errorEmail = false, errorMdp = false;
   @override
   Widget build(BuildContext context) {
@@ -49,9 +51,9 @@ class _Connexion extends State<Connexion> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (errorMdp || errorEmail)
-                    const Text(
-                      "Formulaire incomplet",
-                      style: TextStyle(
+                    Text(
+                      message,
+                      style: const TextStyle(
                         color: Colors.red,
                         fontSize: 14,
                       ),
@@ -96,8 +98,10 @@ class _Connexion extends State<Connexion> {
                           } else {
                             setState(() {
                               errorEmail = false;
+                              
                             });
                           }
+                          email = val;
                         }),
                   ),
                   const SizedBox(
@@ -139,8 +143,10 @@ class _Connexion extends State<Connexion> {
                           } else {
                             setState(() {
                               errorMdp = false;
+                              
                             });
                           }
+                          mdp = val;
                         }),
                   ),
                   const SizedBox(
@@ -153,12 +159,35 @@ class _Connexion extends State<Connexion> {
                               borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
                         if (_keyForm.currentState!.validate()) {
-                          //Connexion
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const Fil()));
+                          if (errorMdp || errorEmail) {
+                            setState(() {
+                              message = "Formulaire incomplet";
+                            });
+                          } else {
+                            Query.select('users')
+                                .then((value) => {
+                                  print(value),
+                                      if (value.isNotEmpty)
+                                        {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          const Fil()))
+                                        }
+                                      else
+                                        {
+                                          print(value),
+                                          print(email),
+                                          print(mdp),
+                                          setState(() {
+                                            message =
+                                                "Informations non Invalide";
+                                          })
+                                        }
+                                    });
+                          }
                         }
                       },
                       child: const Padding(
@@ -173,7 +202,11 @@ class _Connexion extends State<Connexion> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/forget');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Forget()));
                       },
                       child: const Text(
                         "Mot de passe oublie",
@@ -184,7 +217,11 @@ class _Connexion extends State<Connexion> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/inscription');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Inscription()));
                       },
                       child: const Text(
                         "S'inscrire",

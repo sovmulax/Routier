@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:routier/API/query.dart';
+import 'package:routier/connexion/connexion.dart';
 
 class Inscription extends StatefulWidget {
   const Inscription({Key? key}) : super(key: key);
@@ -10,11 +12,18 @@ class Inscription extends StatefulWidget {
 class _InscriptionState extends State<Inscription> {
   final _keyForm = GlobalKey<FormState>();
 
-  String mdp = '', confMdp = '', email = '', message = '';
+  String mdp = '',
+      confMdp = '',
+      email = '',
+      message = '',
+      nom = '',
+      prenom = '';
   bool errorEmail = false,
       errorMdp = false,
       errorMdpConf = false,
-      errorPass = false;
+      errorPass = false,
+      errornom = false,
+      errorprenom = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +38,10 @@ class _InscriptionState extends State<Inscription> {
         leading: IconButton(
             color: Colors.white,
             onPressed: () {
-              Navigator.pushNamed(context, '/connexion');
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Connexion()));
             },
             icon: const Icon(Icons.arrow_back)),
       ),
@@ -74,6 +86,96 @@ class _InscriptionState extends State<Inscription> {
                             color: Colors.black54,
                             fontSize: 14,
                           ),
+                          hintText: 'latash',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.white,
+                              width: 2.0,
+                            ),
+                          )),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          setState(() {
+                            errornom = true;
+                          });
+                        } else {
+                          setState(() {
+                            errornom = false;
+                          });
+                        }
+                      },
+                      onChanged: (val) => nom = val,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(width: 0, color: Colors.transparent),
+                        color: Colors.white),
+                    child: TextFormField(
+                      maxLines: 1,
+                      minLines: 1,
+                      style: const TextStyle(fontSize: 14),
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: const BorderSide(
+                                  width: 2, color: Colors.black54)),
+                          errorBorder: const OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.red)),
+                          contentPadding: const EdgeInsets.all(20.0),
+                          hintStyle: const TextStyle(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                          hintText: '.inc',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: const BorderSide(
+                              color: Colors.white,
+                              width: 2.0,
+                            ),
+                          )),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          setState(() {
+                            errorprenom = true;
+                          });
+                        } else {
+                          setState(() {
+                            errorprenom = false;
+                          });
+                        }
+                      },
+                      onChanged: (val) => prenom = val,
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(width: 0, color: Colors.transparent),
+                        color: Colors.white),
+                    child: TextFormField(
+                      maxLines: 1,
+                      minLines: 1,
+                      style: const TextStyle(fontSize: 14),
+                      decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: const BorderSide(
+                                  width: 2, color: Colors.black54)),
+                          errorBorder: const OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.red)),
+                          contentPadding: const EdgeInsets.all(20.0),
+                          hintStyle: const TextStyle(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
                           hintText: 'exemple@gmail.com',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -93,6 +195,7 @@ class _InscriptionState extends State<Inscription> {
                           });
                         }
                       },
+                      onChanged: (val) => email = val,
                     ),
                   ),
                   const SizedBox(
@@ -201,7 +304,11 @@ class _InscriptionState extends State<Inscription> {
                               borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
                         if (_keyForm.currentState!.validate()) {
-                          if (errorMdp || errorEmail || errorMdpConf) {
+                          if (errorMdp ||
+                              errorEmail ||
+                              errorMdpConf ||
+                              errornom ||
+                              errorprenom) {
                             setState(() {
                               message = "Formulaire incomplet";
                             });
@@ -211,6 +318,28 @@ class _InscriptionState extends State<Inscription> {
                             });
                           } else {
                             message = '';
+                            print(nom);
+                            print(prenom);
+                            print(email);
+                            print(mdp);
+                            print('confirme =>' + confMdp);
+                            Query.insert('users', {
+                              'nom': nom,
+                              'prenom': prenom,
+                              'email': email,
+                              'mdp': mdp
+                            }).then((value) => {
+                                  if (value == "success")
+                                    {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  const Connexion()))
+                                    }
+                                  else
+                                    {print(value)}
+                                });
                           }
                         }
                       },

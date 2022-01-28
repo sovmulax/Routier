@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:routier/menu.dart';
 
-void main() {
+import 'dart:async';                                    // new
+
+import 'package:cloud_firestore/cloud_firestore.dart';  // new
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+// import 'firebase_options.dart';
+// import 'src/authentication.dart';
+// import 'src/widgets.dart';
+
+Future<void> main() async {
+  await Firebase.initializeApp();
   runApp(const Forum());
 }
 
@@ -71,6 +84,18 @@ class MyHomePage extends StatelessWidget {
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
 
+  Future<DocumentReference> addMessageToGuestBook(String message) {
+    
+    return FirebaseFirestore.instance
+        .collection('forum')
+        .add(<String, dynamic>{
+      'text': message,
+      'timestamp': DateTime.now().millisecondsSinceEpoch,
+      'name': FirebaseAuth.instance.currentUser!.displayName,
+      'userId': FirebaseAuth.instance.currentUser!.uid,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -81,8 +106,24 @@ class ChatPage extends StatelessWidget {
   }
 }
 
-class BottomSection extends StatelessWidget {
-  const BottomSection({Key? key}) : super(key: key);
+class BottomSection extends StatefulWidget {
+  const BottomSection({ Key? key }) : super(key: key);
+
+  @override
+  _BottomSectionState createState() => _BottomSectionState();
+
+  addMessage(String text) {}
+}
+
+class _BottomSectionState extends State<BottomSection> {
+  
+  final formKey = GlobalKey<FormState>();
+  final messageController = TextEditingController();
+
+  void dispose() {
+    messageController.dispose();
+    dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,28 +144,37 @@ class BottomSection extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(30)),
                   ),
                   child: Row(
-                    children: const [
-                      SizedBox(width: 10),
-                      Icon(
+                    children: [
+                      const SizedBox(width: 10),
+                      const Icon(
                         Icons.insert_emoticon,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
-                      SizedBox(width: 8.0),
+                      const SizedBox(width: 8.0),
                       Expanded(
-                          child: TextField(
-                        textAlignVertical: TextAlignVertical.center,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      )),
-                      SizedBox(width: 8.0),
-                      Icon(
+                          child: Form(
+                              key: formKey,
+                              child: TextFormField(
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: "Message"),
+                                controller: messageController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Votre message...";
+                                  }
+                                  return null;
+                                },
+                              ))),
+                      const SizedBox(width: 8.0),
+                      const Icon(
                         Icons.image,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
-                      SizedBox(width: 10.0),
+                      const SizedBox(width: 10.0),
                     ],
                   ),
                 ),
@@ -139,7 +189,12 @@ class BottomSection extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: const IconButton(
-                    onPressed: null,
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        await widget.addMessage(messageController.text);
+                        messageController.clear();
+                      }
+                    },
                     icon: Icon(
                       Icons.send_rounded,
                       color: Colors.white,

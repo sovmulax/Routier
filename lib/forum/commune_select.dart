@@ -79,10 +79,10 @@ class Liste extends StatefulWidget {
   const Liste({Key? key}) : super(key: key);
 
   @override
-  State<Liste> createState() => ListeCommune();
+  State<Liste> createState() => _Liste();
 }
 
-class ListeCommune extends State<Liste> {
+class _Liste extends State<Liste> {
   String valeurChoisie = 'Cocody';
 
   @override

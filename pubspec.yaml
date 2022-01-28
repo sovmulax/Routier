@@ -13,10 +13,12 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   material_floating_search_bar: ^0.3.6
-  url_launcher: ^6.0.17
-  http: any
-  mysql1: ^0.19.2
-  crypt: ^4.0.1
+  dio: ^4.0.0
+  flutter_polyline_points: ^1.0.0
+  google_maps_flutter: ^2.0.2
+  firebase_core: ^1.0.1
+  cloud_firestore: ^1.0.1
+  firebase_auth: ^3.3.6
 dev_dependencies:
   flutter_test:
     sdk: flutter

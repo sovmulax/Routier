@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:routier/API/query.dart';
-import 'package:routier/actualit%C3%A9/fil.dart';
+import 'package:routier/database.dart';
+import 'package:routier/map/carte.dart';
 import 'forget.dart';
 import 'inscription.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Connecter());
 }
 
@@ -98,7 +103,6 @@ class _Connexion extends State<Connexion> {
                           } else {
                             setState(() {
                               errorEmail = false;
-                              
                             });
                           }
                           email = val;
@@ -143,7 +147,6 @@ class _Connexion extends State<Connexion> {
                           } else {
                             setState(() {
                               errorMdp = false;
-                              
                             });
                           }
                           mdp = val;
@@ -164,29 +167,17 @@ class _Connexion extends State<Connexion> {
                               message = "Formulaire incomplet";
                             });
                           } else {
-                            Query.select('users')
-                                .then((value) => {
-                                  print(value),
-                                      if (value.isNotEmpty)
-                                        {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder:
-                                                      (BuildContext context) =>
-                                                          const Fil()))
-                                        }
-                                      else
-                                        {
-                                          print(value),
-                                          print(email),
-                                          print(mdp),
-                                          setState(() {
-                                            message =
-                                                "Informations non Invalide";
-                                          })
-                                        }
-                                    });
+                            final Stream<QuerySnapshot> conn =
+                                Database.connexion();
+                            print(conn.elementAt(1));
+                            
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        const Map()
+                                )
+                            );
                           }
                         }
                       },

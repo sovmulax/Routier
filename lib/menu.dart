@@ -4,7 +4,7 @@ import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
 import 'package:routier/connexion/connexion.dart';
 import 'package:routier/forum/commune_select.dart';
-
+import 'package:routier/map/carte.dart';
 import 'forum/commune_select.dart';
 
 class SideMenu extends StatelessWidget {
@@ -48,6 +48,19 @@ class SideMenu extends StatelessWidget {
             ),
             decoration:
                 const BoxDecoration(color: Color.fromRGBO(21, 106, 155, 1)),
+          ),
+          ListTile(
+            title: const Text(
+              'Map',
+              style: TextStyle(
+                  color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu'),
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) =>  Map()));
+            },
           ),
           ListTile(
             title: const Text(

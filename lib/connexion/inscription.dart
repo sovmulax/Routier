@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:routier/API/query.dart';
 import 'package:routier/connexion/connexion.dart';
 
 class Inscription extends StatefulWidget {
@@ -323,23 +322,7 @@ class _InscriptionState extends State<Inscription> {
                             print(email);
                             print(mdp);
                             print('confirme =>' + confMdp);
-                            Query.insert('users', {
-                              'nom': nom,
-                              'prenom': prenom,
-                              'email': email,
-                              'mdp': mdp
-                            }).then((value) => {
-                                  if (value == "success")
-                                    {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  const Connexion()))
-                                    }
-                                  else
-                                    {print(value)}
-                                });
+                            
                           }
                         }
                       },

@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/menu.dart';
 
-void main() {
-  runApp(const Article());
-}
-
 class Article extends StatelessWidget {
-  const Article({Key? key}) : super(key: key);
-
+  final String titre;
+  final String image;
+  final String text;
+  final String source;
+  const Article(
+      {Key? key,
+      required this.titre,
+      required this.image,
+      required this.text,
+      required this.source})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,14 +22,30 @@ class Article extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'ACTUALITÉ - ARTICLE'),
+      home: MyHomePage(
+          title: "ACTUALITÉ - ARTICLE",
+          titres: titre,
+          images: image,
+          texts: text,
+          sources: source),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String titres;
+  final String images;
+  final String texts;
+  final String sources;
+  const MyHomePage(
+      {Key? key,
+      required this.title,
+      required this.titres,
+      required this.images,
+      required this.texts,
+      required this.sources})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,22 +63,26 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
-      body: ListView(
-        children: const [DetailPub()],
-      ),
+      body:
+          DetailPub(titre: titres, image: images, text: texts, source: sources),
       drawer: const SideMenu(),
     );
   }
 }
 
 class DetailPub extends StatelessWidget {
-  final String title = "Intitulé de l'article";
-  final String text =
-      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
-  final String source = "Source : XXXXXX XXX XXXXX";
   final String fontStyle = "Ubuntu";
-
-  const DetailPub({Key? key}) : super(key: key);
+  final String titre;
+  final String image;
+  final String text;
+  final String source;
+  const DetailPub(
+      {Key? key,
+      required this.titre,
+      required this.image,
+      required this.text,
+      required this.source})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -69,7 +94,7 @@ class DetailPub extends StatelessWidget {
             children: [
               SizedBox(
                 child: Text(
-                  title,
+                  titre,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.grey,
@@ -81,7 +106,7 @@ class DetailPub extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Container(
-                child: Image.asset('assets/images/octocat.png', height: 300),
+                child: Image.network(image, fit: BoxFit.fill, height: 300),
                 width: MediaQuery.of(context).size.width * 1,
                 height: MediaQuery.of(context).size.width * 0.5,
                 decoration: const BoxDecoration(
@@ -104,7 +129,7 @@ class DetailPub extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 child: Text(
-                  source,
+                  "Source : $source",
                   textAlign: TextAlign.end,
                   style: TextStyle(
                       color: Colors.grey,

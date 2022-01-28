@@ -1,17 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:routier/database.dart';
+import 'package:routier/connexion/fire_auth.dart';
 import 'package:routier/map/carte.dart';
 import 'forget.dart';
 import 'inscription.dart';
-
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const Connecter());
-}
 
 class Connecter extends StatelessWidget {
   const Connecter({Key? key}) : super(key: key);
@@ -38,6 +32,15 @@ class Connexion extends StatefulWidget {
 }
 
 class _Connexion extends State<Connexion> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
+  }
+
   final _keyForm = GlobalKey<FormState>();
   String mdp = '', email = '', message = '';
   bool errorEmail = false, errorMdp = false;
@@ -160,24 +163,15 @@ class _Connexion extends State<Connexion> {
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {
+                      onPressed: () async {
                         if (_keyForm.currentState!.validate()) {
-                          if (errorMdp || errorEmail) {
-                            setState(() {
-                              message = "Formulaire incomplet";
-                            });
-                          } else {
-                            final Stream<QuerySnapshot> conn =
-                                Database.connexion();
-                            print(conn.elementAt(1));
-                            
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        const Map()
-                                )
-                            );
+                          User? user = await FireAuth.signInUsingEmailPassword(
+                            email: email,
+                            password: mdp,
+                          );
+                          if (user != null) {
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (context) => Map()));
                           }
                         }
                       },
@@ -225,6 +219,39 @@ class _Connexion extends State<Connexion> {
               )),
         ),
       ),
+    );
+  }
+}
+
+class GetUserName extends StatelessWidget {
+  //GetUserName(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance
+        .collection('routier')
+        .doc('users')
+        .collection('items');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc().get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return Text("Document does not exist");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map data = snapshot.data!.data() as Map;
+          return Text("data = > $data");
+        }
+
+        return Text("loading");
+      },
     );
   }
 }

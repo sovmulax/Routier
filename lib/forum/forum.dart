@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:routier/menu.dart';
 
-import 'dart:async';                                    // new
+import 'dart:async'; // new
 
-import 'package:cloud_firestore/cloud_firestore.dart';  // new
+import 'package:cloud_firestore/cloud_firestore.dart'; // new
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -85,10 +85,7 @@ class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
 
   Future<DocumentReference> addMessageToGuestBook(String message) {
-    
-    return FirebaseFirestore.instance
-        .collection('forum')
-        .add(<String, dynamic>{
+    return FirebaseFirestore.instance.collection('forum').add(<String, dynamic>{
       'text': message,
       'timestamp': DateTime.now().millisecondsSinceEpoch,
       'name': FirebaseAuth.instance.currentUser!.displayName,
@@ -107,7 +104,7 @@ class ChatPage extends StatelessWidget {
 }
 
 class BottomSection extends StatefulWidget {
-  const BottomSection({ Key? key }) : super(key: key);
+  const BottomSection({Key? key}) : super(key: key);
 
   @override
   _BottomSectionState createState() => _BottomSectionState();
@@ -116,7 +113,6 @@ class BottomSection extends StatefulWidget {
 }
 
 class _BottomSectionState extends State<BottomSection> {
-  
   final formKey = GlobalKey<FormState>();
   final messageController = TextEditingController();
 
@@ -221,91 +217,6 @@ class ChatingSection extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 45),
-            TextMessage(
-              message: "Months on ye at by esteem",
-              date: "17:19",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Seen you eyes son show",
-              date: "17:13",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "As tolerably recommend shameless",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
-            ),
-            TextMessage(
-              message: "She although cheerful perceive",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            // const ImageMessage(
-            //   image: 'assets/images/logo.png',
-            //   date: "17:09",
-            // ),
-            TextMessage(
-              message:
-                  "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
-              date: "16:59",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Under as seems we me stuff",
-              date: "16:53",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Next it draw in draw much bred",
-              date: "16:50",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
-            ),
-            TextMessage(
-              message: "Sure that that way gave",
-              date: "16:48",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Months on ye at by esteem",
-              date: "17:19",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Seen you eyes son show",
-              date: "17:13",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
             TextMessage(
               message: "As tolerably recommend shameless",
               date: "17:10",
@@ -502,87 +413,3 @@ class TextMessage extends StatelessWidget {
     );
   }
 }
-
-// class ImageMessage extends StatelessWidget {
-//   final String image, date;
-
-//   const ImageMessage({
-//     Key? key,
-//     required this.image,
-//     required this.date,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       children: [
-//         Container(
-//           margin: const EdgeInsets.only(
-//             right: 16,
-//           ),
-//           width: 45,
-//           height: 45,
-//         ),
-//         Expanded(
-//           child: Column(
-//             children: [
-//               Container(
-//                 margin: const EdgeInsets.only(
-//                   right: 26,
-//                   top: 5,
-//                 ),
-//                 height: 150,
-//                 decoration: BoxDecoration(
-//                   image: DecorationImage(
-//                     image: AssetImage(image),
-//                     fit: BoxFit.contain,
-//                   ),
-//                   border:
-//                       Border.all(color: const Color.fromRGBO(21, 106, 155, 1)),
-//                   borderRadius: const BorderRadius.all(
-//                     Radius.circular(22.0),
-//                   ),
-//                 ),
-//               ),
-//               Container(
-//                 margin: const EdgeInsets.only(
-//                   top: 8,
-//                   right: 25,
-//                   bottom: 5,
-//                 ),
-//                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-//                 height: 15,
-//                 decoration: const BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.all(Radius.circular(12)),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         SizedBox(
-//           width: 60,
-//           child: Row(
-//             crossAxisAlignment: CrossAxisAlignment.end,
-//             children: const [
-//               Icon(
-//                 Icons.check,
-//                 color: Color.fromRGBO(21, 106, 155, 1),
-//                 size: 13.0,
-//               ),
-//               SizedBox(width: 7.0),
-//               Text(
-//                 "17:14",
-//                 style: TextStyle(
-//                   color: Color.fromRGBO(21, 106, 155, 1),
-//                   fontSize: 14,
-//                   fontWeight: FontWeight.w500,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }

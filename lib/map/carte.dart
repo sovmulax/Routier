@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'package:routier/menu.dart';
-
-void main() {
-  runApp(const Map());
-}
+import 'package:routier/global.dart' as global;
 
 class Map extends StatelessWidget {
   const Map({Key? key}) : super(key: key);
@@ -23,13 +21,18 @@ class Map extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final String title;
   const MyHomePage({Key? key, required this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         actions: [
           Container(
-            child: Image.asset('assets/images/logo.png', width: 50,),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 50,
+            ),
             margin: const EdgeInsets.only(right: 20),
           )
         ],
@@ -37,7 +40,6 @@ class MyHomePage extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
         ),
-
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
       body: const Center(

@@ -1,4 +1,5 @@
 import 'package:routier/menu.dart';
+import 'package:routier/connexion/fire_auth.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -171,8 +172,9 @@ class _BottomSectionState extends State<BottomSection> {
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         dbRef.push().set({
-                          "users"
-                        });
+                          "message": messageController.text,
+                          "users": email;
+                          });
                         //widget.addMessage(messageController.text);
                         //messageController.clear();
                       }

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
@@ -113,6 +114,7 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
             onTap: () {
+              FirebaseAuth.instance.signOut();
               Navigator.push(
                   context,
                   MaterialPageRoute(

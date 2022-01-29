@@ -1,19 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:routier/menu.dart';
 
-import 'dart:async'; // new
-
-import 'package:cloud_firestore/cloud_firestore.dart'; // new
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database_tutorial/home.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-// import 'firebase_options.dart';
-// import 'src/authentication.dart';
-// import 'src/widgets.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const Forum());
 }
@@ -84,15 +77,6 @@ class MyHomePage extends StatelessWidget {
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
 
-  Future<DocumentReference> addMessageToGuestBook(String message) {
-    return FirebaseFirestore.instance.collection('forum').add(<String, dynamic>{
-      'text': message,
-      'timestamp': DateTime.now().millisecondsSinceEpoch,
-      'name': FirebaseAuth.instance.currentUser!.displayName,
-      'userId': FirebaseAuth.instance.currentUser!.uid,
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
@@ -108,17 +92,16 @@ class BottomSection extends StatefulWidget {
 
   @override
   _BottomSectionState createState() => _BottomSectionState();
-
-  addMessage(String text) {}
 }
 
 class _BottomSectionState extends State<BottomSection> {
   final formKey = GlobalKey<FormState>();
   final messageController = TextEditingController();
+  final dbRef = FirebaseDatabase.instance.reference().child("message");
 
   void dispose() {
     messageController.dispose();
-    dispose();
+    super.dispose();
   }
 
   @override
@@ -184,14 +167,17 @@ class _BottomSectionState extends State<BottomSection> {
                   color: Color.fromRGBO(21, 106, 155, 1),
                   shape: BoxShape.circle,
                 ),
-                child: const IconButton(
+                child: IconButton(
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
-                        await widget.addMessage(messageController.text);
-                        messageController.clear();
+                        dbRef.push().set({
+                          "users"
+                        });
+                        //widget.addMessage(messageController.text);
+                        //messageController.clear();
                       }
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.send_rounded,
                       color: Colors.white,
                     )),

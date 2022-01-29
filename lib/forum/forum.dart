@@ -1,9 +1,9 @@
 import 'package:routier/menu.dart';
-import 'package:routier/connexion/fire_auth.dart';
+import 'package:routier/global.dart' as global;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_database_tutorial/home.dart';
+//import 'package:firebase_database_tutorial/home.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -163,7 +163,6 @@ class _BottomSectionState extends State<BottomSection> {
                 margin: const EdgeInsets.only(left: 25),
                 height: 45,
                 width: 45,
-                //color: Colors.white,
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(21, 106, 155, 1),
                   shape: BoxShape.circle,
@@ -173,10 +172,15 @@ class _BottomSectionState extends State<BottomSection> {
                       if (formKey.currentState!.validate()) {
                         dbRef.push().set({
                           "message": messageController.text,
-                          "users": email;
-                          });
-                        //widget.addMessage(messageController.text);
-                        //messageController.clear();
+                          "time":
+                              DateTime.now().millisecondsSinceEpoch.toString(),
+                          "users": global.email,
+                        }).then((_) {
+                          messageController.clear();
+                        }).catchError((onError) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text(onError)));
+                        });
                       }
                     },
                     icon: const Icon(
@@ -191,8 +195,7 @@ class _BottomSectionState extends State<BottomSection> {
 }
 
 class ChatingSection extends StatelessWidget {
-  final String senderProfile = 'assets/images/logo.png';
-  final String receiverProfile = 'assets/images/logo.png';
+  final String profil = 'assets/images/logo.png';
   const ChatingSection({Key? key}) : super(key: key);
 
   @override
@@ -203,25 +206,18 @@ class ChatingSection extends StatelessWidget {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
-          children: [
-            const SizedBox(height: 45),
+          children: const [
+            SizedBox(height: 45),
             TextMessage(
               message: "As tolerably recommend shameless",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
+              time: "17:10",
+              email: "luc@gmail.com",
             ),
             TextMessage(
-              message: "She although cheerful perceive",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Geoffroy",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            const SizedBox(height: 15),
+                message: "She although cheerful perceive",
+                time: "17:10",
+                email: "luc@gmail.com"),
+            SizedBox(height: 15),
           ],
         ),
       ),
@@ -230,17 +226,14 @@ class ChatingSection extends StatelessWidget {
 }
 
 class TextMessage extends StatelessWidget {
-  final String message, date, senderProfile, senderName;
-  final int isReceiver, isDirect;
+  final String message, time, email;
+  final String profil = 'assets/images/logo.png';
 
   const TextMessage({
     Key? key,
     required this.message,
-    required this.date,
-    required this.senderProfile,
-    required this.senderName,
-    required this.isReceiver,
-    required this.isDirect,
+    required this.time,
+    required this.email,
   }) : super(key: key);
 
   @override
@@ -249,7 +242,7 @@ class TextMessage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         children: [
-          isReceiver == 1 && isDirect == 0
+          email != global.email
               ? Container(
                   margin: const EdgeInsets.only(right: 15),
                   width: 45,
@@ -258,7 +251,7 @@ class TextMessage extends StatelessWidget {
                     color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(senderProfile),
+                      image: AssetImage(profil),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -274,7 +267,7 @@ class TextMessage extends StatelessWidget {
                       ),
                       const SizedBox(width: 7.0),
                       Text(
-                        date,
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
                           fontSize: 14,
@@ -287,7 +280,7 @@ class TextMessage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.centerLeft,
-              margin: isReceiver == 1
+              margin: email != global.email
                   ? const EdgeInsets.only(
                       right: 25,
                     )
@@ -296,7 +289,7 @@ class TextMessage extends StatelessWidget {
                     ),
               padding:
                   const EdgeInsets.only(left: 6, top: 15, right: 6, bottom: 15),
-              decoration: isReceiver == 1
+              decoration: email != global.email
                   ? const BoxDecoration(
                       color: Color.fromRGBO(21, 106, 155, 1),
                       borderRadius: BorderRadius.only(
@@ -314,13 +307,13 @@ class TextMessage extends StatelessWidget {
                       ),
                     ),
               child: Column(
-                crossAxisAlignment: isReceiver == 1
+                crossAxisAlignment: email != global.email
                     ? CrossAxisAlignment.start
                     : CrossAxisAlignment.end,
                 children: [
-                  isReceiver == 1
+                  email != global.email
                       ? Text(
-                          senderName,
+                          email,
                           style: const TextStyle(
                             color: Colors.yellow,
                             fontSize: 14,
@@ -328,7 +321,7 @@ class TextMessage extends StatelessWidget {
                           ),
                         )
                       : const SizedBox(height: 0),
-                  isReceiver == 1
+                  email != global.email
                       ? const SizedBox(height: 10)
                       : const SizedBox(height: 0),
                   Text(
@@ -343,7 +336,7 @@ class TextMessage extends StatelessWidget {
               ),
             ),
           ),
-          isReceiver == 1 && isDirect == 0
+          email != global.email
               ? SizedBox(
                   width: 60,
                   child: Row(
@@ -357,7 +350,7 @@ class TextMessage extends StatelessWidget {
                         width: 7.0,
                       ),
                       Text(
-                        date,
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
                           fontSize: 14,
@@ -368,7 +361,7 @@ class TextMessage extends StatelessWidget {
                   ),
                 )
               : Container(),
-          isDirect == 0 && isReceiver == 0
+          email != global.email
               ? Container(
                   margin: const EdgeInsets.only(
                     left: 16,
@@ -380,13 +373,13 @@ class TextMessage extends StatelessWidget {
                     color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(senderProfile),
+                      image: AssetImage(profil),
                       fit: BoxFit.cover,
                     ),
                   ),
                 )
               : Container(),
-          isReceiver == 0 && isDirect == 1
+          email == global.email
               ? Container(
                   margin: const EdgeInsets.only(
                     left: 16,

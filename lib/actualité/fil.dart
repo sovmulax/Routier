@@ -1,10 +1,14 @@
 // main.dart
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:routier/actualit%C3%A9/details.dart';
 import 'package:routier/calendrier/details.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'package:routier/menu.dart';
+import 'package:routier/global.dart' as global;
+import 'package:flutter/scheduler.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,12 +22,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FIL',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Fil(),
-    );
+        title: 'FIL',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Fil(),
+        routes: <String, WidgetBuilder>{
+          "login": (BuildContext context) => const Connexion(),
+        });
   }
 }
 
@@ -39,6 +45,17 @@ class _FilState extends State<Fil> {
       .collection('routier')
       .doc('actualité')
       .collection('items');
+
+  @override
+  void initState() {
+    if (global.isConnect == false) {
+      SchedulerBinding.instance?.addPostFrameCallback((_) {
+        Navigator.of(context).pushNamed("login");
+      });
+    }
+    print(global.isConnect);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +98,13 @@ class _FilState extends State<Fil> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          Article(titre: documentSnapshot["titre"], image: documentSnapshot['image'], text: documentSnapshot['description'], source: documentSnapshot['source'])));
+                                          Article(
+                                              titre: documentSnapshot["titre"],
+                                              image: documentSnapshot['image'],
+                                              text: documentSnapshot[
+                                                  'description'],
+                                              source:
+                                                  documentSnapshot['source'])));
                             },
                             child: Container(
                               child: Image.network(documentSnapshot["image"],
@@ -110,8 +133,10 @@ class _FilState extends State<Fil> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: Image.network(documentSnapshot["sourceImage"],
-                                   height: 50, fit: BoxFit.cover),
+                                  child: Image.network(
+                                      documentSnapshot["sourceImage"],
+                                      height: 50,
+                                      fit: BoxFit.cover),
                                   margin: const EdgeInsets.all(10.0),
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,

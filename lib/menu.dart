@@ -7,6 +7,7 @@ import 'package:routier/connexion/connexion.dart';
 import 'package:routier/forum/commune_select.dart';
 import 'package:routier/map/carte.dart';
 import 'forum/commune_select.dart';
+import 'package:routier/global.dart' as global;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -37,9 +38,9 @@ class SideMenu extends StatelessWidget {
                       fontSize: 25,
                       fontFamily: 'Ubuntu'),
                 ),
-                const Text(
-                  'Jhon@gmail.com',
-                  style: TextStyle(
+                Text(
+                  global.email,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontStyle: FontStyle.italic,
                       fontSize: 20,
@@ -57,10 +58,8 @@ class SideMenu extends StatelessWidget {
                   color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu'),
             ),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) =>  Map()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext context) => Map()));
             },
           ),
           ListTile(
@@ -95,7 +94,8 @@ class SideMenu extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const CommuneSelect()));
+                      builder: (BuildContext context) =>
+                          const CommuneSelect()));
             },
           ),
           ListTile(
@@ -114,14 +114,14 @@ class SideMenu extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.black, fontSize: 18, fontFamily: 'Ubuntu')),
             onTap: () {
-              FirebaseAuth.instance.signOut();
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const Connexion()));
+              global.isConnect = false;
+              print(global.isConnect);
+
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/login', (Route<dynamic> route) => false);
+              
             },
           ),
-          
         ],
       ),
     );

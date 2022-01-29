@@ -2,10 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/connexion/fire_auth.dart';
+import 'package:routier/connexion/forget.dart';
+import 'package:routier/connexion/inscription.dart';
 import 'package:routier/map/carte.dart';
-import 'forget.dart';
-import 'inscription.dart';
+import 'package:routier/global.dart' as global;
 
 class Connecter extends StatelessWidget {
   const Connecter({Key? key}) : super(key: key);
@@ -170,8 +172,12 @@ class _Connexion extends State<Connexion> {
                             password: mdp,
                           );
                           if (user != null) {
+                            print(user.email);
+                            global.email = user.email.toString();
+                            global.isConnect = true;
                             Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) => Map()));
+                                MaterialPageRoute(
+                                    builder: (context) => const Fil()));
                           }
                         }
                       },

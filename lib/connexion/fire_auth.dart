@@ -5,6 +5,7 @@ final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainCollection = _firestore.collection('routier');
 
 class FireAuth {
+
   static Future<User?> registerUsingEmailPassword({
     required String name,
     required String surname,
@@ -26,7 +27,7 @@ class FireAuth {
           .set(data)
           .whenComplete(() => print("User ajouter"))
           .catchError((e) => print(e));
-      
+
       UserCredential userCredential = await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
@@ -70,4 +71,18 @@ class FireAuth {
 
     return user;
   }
+
+  static Future<User?> refreshUser(User user) async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+    await user.reload();
+    User? refreshedUser = auth.currentUser;
+
+    return refreshedUser;
+  }
+
+
+  
+  
+
 }

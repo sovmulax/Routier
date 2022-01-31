@@ -1,12 +1,9 @@
-// ignore_for_file: unnecessary_new
-
-import 'package:loading/loading.dart';
+import 'package:flutterfire_ui/auth.dart';
 import 'package:routier/forum/api.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -56,20 +53,20 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: const [
-              SizedBox(
+            children: [
+              const SizedBox(
                 height: 20,
               ),
               Center(
                 child: Text(
-                  "NOM DE LA COMMUNE",
-                  style: TextStyle(fontSize: 18),
+                  global.valeurChoisie.toUpperCase(),
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Expanded(
+              const Expanded(
                 child: ChatPage(),
               ),
             ],
@@ -143,8 +140,9 @@ class _BottomSectionState extends State<BottomSection> {
                               child: TextFormField(
                                 textAlignVertical: TextAlignVertical.center,
                                 decoration: const InputDecoration(
-                                    border: InputBorder.none,
-                                    labelText: "Message"),
+                                  hintText: 'Message',
+                                  border: InputBorder.none,
+                                ),
                                 controller: messageController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -189,10 +187,9 @@ class _BottomSectionState extends State<BottomSection> {
       messageRequete.envoiMessage(
           global.valeurChoisie,
           Message(
-            message: content,
-            time: DateTime.now().millisecondsSinceEpoch.toString(),
-            email: global.email,
-          ));
+              email: global.email.toString(),
+              message: content,
+              time: DateTime.now().millisecondsSinceEpoch.toString()));
       // listScrollController.animateTo(0.0,
       //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
       messageController.clear();
@@ -219,34 +216,33 @@ class _ChatingSectionState extends State<ChatingSection> {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       height: double.infinity,
       color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 45),
-            Flexible(
-              child: StreamBuilder<List<Message>>(
-                stream: messageRequete.recevoirMessage(global.valeurChoisie),
-                builder: (BuildContext context,
-                    AsyncSnapshot<List<Message>> snapshot) {
-                  if (snapshot.hasData) {
-                    List<Message> listMessage = snapshot.data ?? List.from([]);
-                    return ListView.builder(
-                      itemBuilder: (context, index) => TextMessage(
-                          message: listMessage[index].message,
-                          time: listMessage[index].time,
-                          email: listMessage[index].email),
-                      itemCount: listMessage.length,
-                      reverse: true,
-                    );
-                  } else {
-                    return Center(child: Loading());
-                  }
-                },
-              ),
+      child: Column(
+        children: [
+          const SizedBox(height: 45),
+          Flexible(
+            child: StreamBuilder<List<Message>>(
+              stream: messageRequete.recevoirMessage(global.valeurChoisie),
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Message>> snapshot) {
+                if (snapshot.hasData) {
+                  List<Message> listMessage = snapshot.data ?? List.from([]);
+                  return ListView.builder(
+                    itemBuilder: (context, index) => TextMessage(
+                        message: listMessage[index].message,
+                        time: listMessage[index].time,
+                        email: listMessage[index].email),
+                    itemCount: listMessage.length,
+                    reverse: true,
+                  );
+                } else {
+                  return const Center(
+                      child: LoadingIndicator(size: 16, borderWidth: 2));
+                }
+              },
             ),
-            const SizedBox(height: 15),
-          ],
-        ),
+          ),
+          const SizedBox(height: 15),
+        ],
       ),
     );
   }
@@ -258,7 +254,7 @@ class Message {
   Message({required this.message, required this.time, required this.email});
 
   Map<String, dynamic> toHashMap() {
-    return {'message': message, 'time': time, 'email': email};
+    return {'email': email, 'message': message, 'time': time};
   }
 }
 

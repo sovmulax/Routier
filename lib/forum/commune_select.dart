@@ -1,10 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/forum/forum.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
 
-void main() {
+Future<void> main() async {
   runApp(const CommuneSelect());
+  await Firebase.initializeApp();
 }
 
 class CommuneSelect extends StatelessWidget {
@@ -108,7 +110,7 @@ class _Liste extends State<Liste> {
             child: DropdownButtonFormField(
                 value: global.valeurChoisie,
                 icon: const Icon(Icons.arrow_drop_down_rounded),
-                //elevation: 16,
+                elevation: 16,
                 // underline: Container(
                 //   height: 2,
                 //   color: const Color.fromRGBO(21, 106, 155, 1),

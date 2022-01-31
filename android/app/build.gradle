@@ -71,9 +71,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 }
 
+
 configurations.all {
     resolutionStrategy {
-        force 'com.google.android.gms:play-services-places:11.8.0'
-        force 'com.google.android.gms:play-services-location:11.8.0'
+        force 'com.google.android.gms:play-services-places:15.0.1'
+        force 'com.google.android.gms:play-services-location:15.0.1'
     }
 }

@@ -1,7 +1,16 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: unnecessary_new
+import 'package:loading/loading.dart';
+import 'package:routier/forum/api.dart';
 import 'package:routier/menu.dart';
+import 'package:routier/global.dart' as global;
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Forum());
 }
 
@@ -81,8 +90,23 @@ class ChatPage extends StatelessWidget {
   }
 }
 
-class BottomSection extends StatelessWidget {
+class BottomSection extends StatefulWidget {
   const BottomSection({Key? key}) : super(key: key);
+
+  @override
+  _BottomSectionState createState() => _BottomSectionState();
+}
+
+class _BottomSectionState extends State<BottomSection> {
+  final MessageAPI messageRequete = MessageAPI();
+  final formKey = GlobalKey<FormState>();
+  final messageController = TextEditingController();
+
+  @override
+  void dispose() {
+    messageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,28 +127,37 @@ class BottomSection extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(30)),
                   ),
                   child: Row(
-                    children: const [
-                      SizedBox(width: 10),
-                      Icon(
+                    children: [
+                      const SizedBox(width: 10),
+                      const Icon(
                         Icons.insert_emoticon,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
-                      SizedBox(width: 8.0),
+                      const SizedBox(width: 8.0),
                       Expanded(
-                          child: TextField(
-                        textAlignVertical: TextAlignVertical.center,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                        ),
-                      )),
-                      SizedBox(width: 8.0),
-                      Icon(
+                          child: Form(
+                              key: formKey,
+                              child: TextFormField(
+                                textAlignVertical: TextAlignVertical.center,
+                                decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    labelText: "Message"),
+                                controller: messageController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Votre message...";
+                                  }
+                                  return null;
+                                },
+                              ))),
+                      const SizedBox(width: 8.0),
+                      const Icon(
                         Icons.image,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
-                      SizedBox(width: 10.0),
+                      const SizedBox(width: 10.0),
                     ],
                   ),
                 ),
@@ -133,14 +166,13 @@ class BottomSection extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 25),
                 height: 45,
                 width: 45,
-                //color: Colors.white,
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(21, 106, 155, 1),
                   shape: BoxShape.circle,
                 ),
-                child: const IconButton(
-                    onPressed: null,
-                    icon: Icon(
+                child: IconButton(
+                    onPressed: () => envoiMes(messageController.text),
+                    icon: const Icon(
                       Icons.send_rounded,
                       color: Colors.white,
                     )),
@@ -149,12 +181,35 @@ class BottomSection extends StatelessWidget {
       ),
     );
   }
+
+  void envoiMes(String content) {
+    if (content.trim() != '') {
+      messageRequete.envoiMessage(
+          global.valeurChoisie,
+          Message(
+            message: content,
+            time: DateTime.now().millisecondsSinceEpoch.toString(),
+            email: global.email,
+          ));
+      // listScrollController.animateTo(0.0,
+      //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+      messageController.clear();
+    } else {
+      Fluttertoast.showToast(msg: 'Rien à envoyer', textColor: Colors.red);
+    }
+  }
 }
 
-class ChatingSection extends StatelessWidget {
-  final String senderProfile = 'assets/images/logo.png';
-  final String receiverProfile = 'assets/images/logo.png';
+class ChatingSection extends StatefulWidget {
   const ChatingSection({Key? key}) : super(key: key);
+
+  @override
+  _ChatingSectionState createState() => _ChatingSectionState();
+}
+
+class _ChatingSectionState extends State<ChatingSection> {
+  final MessageAPI messageRequete = MessageAPI();
+  List<Map<dynamic, dynamic>> lists = [];
 
   @override
   Widget build(BuildContext context) {
@@ -166,106 +221,26 @@ class ChatingSection extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 45),
-            TextMessage(
-              message: "Months on ye at by esteem",
-              date: "17:19",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Seen you eyes son show",
-              date: "17:13",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "As tolerably recommend shameless",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
-            ),
-            TextMessage(
-              message: "She although cheerful perceive",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            // const ImageMessage(
-            //   image: 'assets/images/logo.png',
-            //   date: "17:09",
-            // ),
-            TextMessage(
-              message:
-                  "Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. Provided put unpacked now but bringing. ",
-              date: "16:59",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Under as seems we me stuff",
-              date: "16:53",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Next it draw in draw much bred",
-              date: "16:50",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
-            ),
-            TextMessage(
-              message: "Sure that that way gave",
-              date: "16:48",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Months on ye at by esteem",
-              date: "17:19",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 1,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "Seen you eyes son show",
-              date: "17:13",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 0,
-            ),
-            TextMessage(
-              message: "As tolerably recommend shameless",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Luc G",
-              isReceiver: 0,
-              isDirect: 1,
-            ),
-            TextMessage(
-              message: "She although cheerful perceive",
-              date: "17:10",
-              senderProfile: senderProfile,
-              senderName: "Geoffroy",
-              isReceiver: 1,
-              isDirect: 0,
+            Flexible(
+              child: StreamBuilder<List<Message>>(
+                stream: messageRequete.recevoirMessage(global.valeurChoisie),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Message>> snapshot) {
+                  if (snapshot.hasData) {
+                    List<Message> listMessage = snapshot.data ?? List.from([]);
+                    return ListView.builder(
+                      itemBuilder: (context, index) => TextMessage(
+                          message: listMessage[index].message,
+                          time: listMessage[index].time,
+                          email: listMessage[index].email),
+                      itemCount: listMessage.length,
+                      reverse: true,
+                    );
+                  } else {
+                    return Center(child: Loading());
+                  }
+                },
+              ),
             ),
             const SizedBox(height: 15),
           ],
@@ -275,19 +250,25 @@ class ChatingSection extends StatelessWidget {
   }
 }
 
-class TextMessage extends StatelessWidget {
-  final String message, date, senderProfile, senderName;
-  final int isReceiver, isDirect;
+class Message {
+  final String message, time, email;
 
-  const TextMessage({
-    Key? key,
-    required this.message,
-    required this.date,
-    required this.senderProfile,
-    required this.senderName,
-    required this.isReceiver,
-    required this.isDirect,
-  }) : super(key: key);
+  Message({required this.message, required this.time, required this.email});
+
+  Map<String, dynamic> toHashMap() {
+    return {'message': message, 'time': time, 'email': email};
+  }
+}
+
+class TextMessage extends StatelessWidget {
+  TextMessage(
+      {Key? key,
+      required this.message,
+      required this.time,
+      required this.email})
+      : super(key: key);
+  final String message, time, email;
+  final String profil = 'assets/images/logo.png';
 
   @override
   Widget build(BuildContext context) {
@@ -295,7 +276,7 @@ class TextMessage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         children: [
-          isReceiver == 1 && isDirect == 0
+          email != global.email
               ? Container(
                   margin: const EdgeInsets.only(right: 15),
                   width: 45,
@@ -304,7 +285,7 @@ class TextMessage extends StatelessWidget {
                     color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(senderProfile),
+                      image: AssetImage(profil),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -320,7 +301,7 @@ class TextMessage extends StatelessWidget {
                       ),
                       const SizedBox(width: 7.0),
                       Text(
-                        date,
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
                           fontSize: 14,
@@ -333,7 +314,7 @@ class TextMessage extends StatelessWidget {
           Expanded(
             child: Container(
               alignment: Alignment.centerLeft,
-              margin: isReceiver == 1
+              margin: email != global.email
                   ? const EdgeInsets.only(
                       right: 25,
                     )
@@ -342,7 +323,7 @@ class TextMessage extends StatelessWidget {
                     ),
               padding:
                   const EdgeInsets.only(left: 6, top: 15, right: 6, bottom: 15),
-              decoration: isReceiver == 1
+              decoration: email != global.email
                   ? const BoxDecoration(
                       color: Color.fromRGBO(21, 106, 155, 1),
                       borderRadius: BorderRadius.only(
@@ -360,13 +341,13 @@ class TextMessage extends StatelessWidget {
                       ),
                     ),
               child: Column(
-                crossAxisAlignment: isReceiver == 1
+                crossAxisAlignment: email != global.email
                     ? CrossAxisAlignment.start
                     : CrossAxisAlignment.end,
                 children: [
-                  isReceiver == 1
+                  email != global.email
                       ? Text(
-                          senderName,
+                          email,
                           style: const TextStyle(
                             color: Colors.yellow,
                             fontSize: 14,
@@ -374,7 +355,7 @@ class TextMessage extends StatelessWidget {
                           ),
                         )
                       : const SizedBox(height: 0),
-                  isReceiver == 1
+                  email != global.email
                       ? const SizedBox(height: 10)
                       : const SizedBox(height: 0),
                   Text(
@@ -389,7 +370,7 @@ class TextMessage extends StatelessWidget {
               ),
             ),
           ),
-          isReceiver == 1 && isDirect == 0
+          email != global.email
               ? SizedBox(
                   width: 60,
                   child: Row(
@@ -403,7 +384,7 @@ class TextMessage extends StatelessWidget {
                         width: 7.0,
                       ),
                       Text(
-                        date,
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
                           fontSize: 14,
@@ -414,7 +395,7 @@ class TextMessage extends StatelessWidget {
                   ),
                 )
               : Container(),
-          isDirect == 0 && isReceiver == 0
+          email != global.email
               ? Container(
                   margin: const EdgeInsets.only(
                     left: 16,
@@ -426,13 +407,13 @@ class TextMessage extends StatelessWidget {
                     color: Colors.white,
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(senderProfile),
+                      image: AssetImage(profil),
                       fit: BoxFit.cover,
                     ),
                   ),
                 )
               : Container(),
-          isReceiver == 0 && isDirect == 1
+          email == global.email
               ? Container(
                   margin: const EdgeInsets.only(
                     left: 16,
@@ -447,87 +428,3 @@ class TextMessage extends StatelessWidget {
     );
   }
 }
-
-// class ImageMessage extends StatelessWidget {
-//   final String image, date;
-
-//   const ImageMessage({
-//     Key? key,
-//     required this.image,
-//     required this.date,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       children: [
-//         Container(
-//           margin: const EdgeInsets.only(
-//             right: 16,
-//           ),
-//           width: 45,
-//           height: 45,
-//         ),
-//         Expanded(
-//           child: Column(
-//             children: [
-//               Container(
-//                 margin: const EdgeInsets.only(
-//                   right: 26,
-//                   top: 5,
-//                 ),
-//                 height: 150,
-//                 decoration: BoxDecoration(
-//                   image: DecorationImage(
-//                     image: AssetImage(image),
-//                     fit: BoxFit.contain,
-//                   ),
-//                   border:
-//                       Border.all(color: const Color.fromRGBO(21, 106, 155, 1)),
-//                   borderRadius: const BorderRadius.all(
-//                     Radius.circular(22.0),
-//                   ),
-//                 ),
-//               ),
-//               Container(
-//                 margin: const EdgeInsets.only(
-//                   top: 8,
-//                   right: 25,
-//                   bottom: 5,
-//                 ),
-//                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-//                 height: 15,
-//                 decoration: const BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.all(Radius.circular(12)),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         SizedBox(
-//           width: 60,
-//           child: Row(
-//             crossAxisAlignment: CrossAxisAlignment.end,
-//             children: const [
-//               Icon(
-//                 Icons.check,
-//                 color: Color.fromRGBO(21, 106, 155, 1),
-//                 size: 13.0,
-//               ),
-//               SizedBox(width: 7.0),
-//               Text(
-//                 "17:14",
-//                 style: TextStyle(
-//                   color: Color.fromRGBO(21, 106, 155, 1),
-//                   fontSize: 14,
-//                   fontWeight: FontWeight.w500,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }

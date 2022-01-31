@@ -1,5 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/connexion/connexion.dart';
+import 'package:routier/global.dart' as global;
+import 'package:routier/map/carte.dart';
 import 'dart:async';
 
 void main() {
@@ -47,6 +50,10 @@ class StateScreen extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
     startTimer();
   }
 
@@ -58,8 +65,14 @@ class StateScreen extends State<SplashScreen> {
 
   //Method allowing us to access the afterSplash page
   route() {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Connecter()));
+    if (global.isConnect == false) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const Connecter()));
+    } else {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Maps()));
+    }
+    print(global.isConnect);
   }
 
   //Overriding the build function of StateScreen

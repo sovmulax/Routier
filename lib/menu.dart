@@ -59,7 +59,7 @@ class SideMenu extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (BuildContext context) => Map()));
+                  MaterialPageRoute(builder: (BuildContext context) => Maps()));
             },
           ),
           ListTile(

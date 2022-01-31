@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/connexion/connexion.dart';
 
@@ -9,6 +10,15 @@ class Forget extends StatefulWidget {
 }
 
 class _Forget extends State<Forget> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
+  }
+
   final _keyForm = GlobalKey<FormState>();
 
   String email = '', message = '';

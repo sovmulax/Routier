@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/connexion/fire_auth.dart';
 import 'package:routier/connexion/forget.dart';
 import 'package:routier/connexion/inscription.dart';
@@ -18,11 +16,6 @@ class Connecter extends StatelessWidget {
       title: 'Flutter Connexion',
       theme: ThemeData(primarySwatch: Colors.cyan),
       home: const Connexion(),
-      routes: <String, WidgetBuilder>{
-        '/connexion': (BuildContext context) => const Connexion(),
-        '/inscription': (BuildContext context) => const Inscription(),
-        '/forget': (BuildContext context) => const Forget(),
-      },
     );
   }
 }
@@ -177,7 +170,7 @@ class _Connexion extends State<Connexion> {
                             global.isConnect = true;
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(
-                                    builder: (context) => const Fil()));
+                                    builder: (context) => Maps()));
                           }
                         }
                       },
@@ -225,39 +218,6 @@ class _Connexion extends State<Connexion> {
               )),
         ),
       ),
-    );
-  }
-}
-
-class GetUserName extends StatelessWidget {
-  //GetUserName(this.documentId);
-
-  @override
-  Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance
-        .collection('routier')
-        .doc('users')
-        .collection('items');
-
-    return FutureBuilder<DocumentSnapshot>(
-      future: users.doc().get(),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text("Something went wrong");
-        }
-
-        if (snapshot.hasData && !snapshot.data!.exists) {
-          return Text("Document does not exist");
-        }
-
-        if (snapshot.connectionState == ConnectionState.done) {
-          Map data = snapshot.data!.data() as Map;
-          return Text("data = > $data");
-        }
-
-        return Text("loading");
-      },
     );
   }
 }

@@ -48,6 +48,12 @@
 @import flutter_facebook_auth;
 #endif
 
+#if __has_include(<fluttertoast/FluttertoastPlugin.h>)
+#import <fluttertoast/FluttertoastPlugin.h>
+#else
+@import fluttertoast;
+#endif
+
 #if __has_include(<google_maps_flutter/FLTGoogleMapsPlugin.h>)
 #import <google_maps_flutter/FLTGoogleMapsPlugin.h>
 #else
@@ -88,6 +94,7 @@
   [FLTFirebaseDynamicLinksPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseDynamicLinksPlugin"]];
   [FLTFirebaseStoragePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseStoragePlugin"]];
   [FlutterFacebookAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterFacebookAuthPlugin"]];
+  [FluttertoastPlugin registerWithRegistrar:[registry registrarForPlugin:@"FluttertoastPlugin"]];
   [FLTGoogleMapsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMapsPlugin"]];
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [SignInWithApplePlugin registerWithRegistrar:[registry registrarForPlugin:@"SignInWithApplePlugin"]];

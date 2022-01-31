@@ -1,10 +1,14 @@
+// ignore_for_file: unnecessary_new
+
+import 'package:loading/loading.dart';
+import 'package:routier/forum/api.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-//import 'package:firebase_database_tutorial/home.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,10 +100,11 @@ class BottomSection extends StatefulWidget {
 }
 
 class _BottomSectionState extends State<BottomSection> {
+  final MessageAPI messageRequete = MessageAPI();
   final formKey = GlobalKey<FormState>();
   final messageController = TextEditingController();
-  final dbRef = FirebaseDatabase.instance.reference().child("message");
 
+  @override
   void dispose() {
     messageController.dispose();
     super.dispose();
@@ -168,21 +173,7 @@ class _BottomSectionState extends State<BottomSection> {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        dbRef.push().set({
-                          "message": messageController.text,
-                          "time":
-                              DateTime.now().millisecondsSinceEpoch.toString(),
-                          "users": global.email,
-                        }).then((_) {
-                          messageController.clear();
-                        }).catchError((onError) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(SnackBar(content: Text(onError)));
-                        });
-                      }
-                    },
+                    onPressed: () => envoiMes(messageController.text),
                     icon: const Icon(
                       Icons.send_rounded,
                       color: Colors.white,
@@ -192,11 +183,35 @@ class _BottomSectionState extends State<BottomSection> {
       ),
     );
   }
+
+  void envoiMes(String content) {
+    if (content.trim() != '') {
+      messageRequete.envoiMessage(
+          global.valeurChoisie,
+          Message(
+            message: content,
+            time: DateTime.now().millisecondsSinceEpoch.toString(),
+            email: global.email,
+          ));
+      // listScrollController.animateTo(0.0,
+      //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+      messageController.clear();
+    } else {
+      Fluttertoast.showToast(msg: 'Rien à envoyer', textColor: Colors.red);
+    }
+  }
 }
 
-class ChatingSection extends StatelessWidget {
-  final String profil = 'assets/images/logo.png';
+class ChatingSection extends StatefulWidget {
   const ChatingSection({Key? key}) : super(key: key);
+
+  @override
+  _ChatingSectionState createState() => _ChatingSectionState();
+}
+
+class _ChatingSectionState extends State<ChatingSection> {
+  final MessageAPI messageRequete = MessageAPI();
+  List<Map<dynamic, dynamic>> lists = [];
 
   @override
   Widget build(BuildContext context) {
@@ -206,18 +221,30 @@ class ChatingSection extends StatelessWidget {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
-          children: const [
-            SizedBox(height: 45),
-            TextMessage(
-              message: "As tolerably recommend shameless",
-              time: "17:10",
-              email: "luc@gmail.com",
+          children: [
+            const SizedBox(height: 45),
+            Flexible(
+              child: StreamBuilder<List<Message>>(
+                stream: messageRequete.recevoirMessage(global.valeurChoisie),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Message>> snapshot) {
+                  if (snapshot.hasData) {
+                    List<Message> listMessage = snapshot.data ?? List.from([]);
+                    return ListView.builder(
+                      itemBuilder: (context, index) => TextMessage(
+                          message: listMessage[index].message,
+                          time: listMessage[index].time,
+                          email: listMessage[index].email),
+                      itemCount: listMessage.length,
+                      reverse: true,
+                    );
+                  } else {
+                    return Center(child: Loading());
+                  }
+                },
+              ),
             ),
-            TextMessage(
-                message: "She although cheerful perceive",
-                time: "17:10",
-                email: "luc@gmail.com"),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
           ],
         ),
       ),
@@ -225,16 +252,25 @@ class ChatingSection extends StatelessWidget {
   }
 }
 
+class Message {
+  final String message, time, email;
+
+  Message({required this.message, required this.time, required this.email});
+
+  Map<String, dynamic> toHashMap() {
+    return {'message': message, 'time': time, 'email': email};
+  }
+}
+
 class TextMessage extends StatelessWidget {
+  TextMessage(
+      {Key? key,
+      required this.message,
+      required this.time,
+      required this.email})
+      : super(key: key);
   final String message, time, email;
   final String profil = 'assets/images/logo.png';
-
-  const TextMessage({
-    Key? key,
-    required this.message,
-    required this.time,
-    required this.email,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

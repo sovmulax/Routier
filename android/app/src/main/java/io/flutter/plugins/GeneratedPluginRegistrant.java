@@ -36,9 +36,9 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin firebase_database, io.flutter.plugins.firebase.database.FirebaseDatabasePlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new io.flutter.plugins.firebasedynamiclinks.FirebaseDynamicLinksPlugin());
+      flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.dynamiclinks.FlutterFirebaseDynamicLinksPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin firebase_dynamic_links, io.flutter.plugins.firebasedynamiclinks.FirebaseDynamicLinksPlugin", e);
+      Log.e(TAG, "Error registering plugin firebase_dynamic_links, io.flutter.plugins.firebase.dynamiclinks.FlutterFirebaseDynamicLinksPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.storage.FlutterFirebaseStoragePlugin());
@@ -54,6 +54,11 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin flutter_plugin_android_lifecycle, io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new io.github.ponnamkarthik.toast.fluttertoast.FlutterToastPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin fluttertoast, io.github.ponnamkarthik.toast.fluttertoast.FlutterToastPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.googlemaps.GoogleMapsPlugin());

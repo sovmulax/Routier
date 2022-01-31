@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:routier/forum/forum.dart';
 import 'package:routier/menu.dart';
+import 'package:routier/global.dart' as global;
 
 void main() {
   runApp(const CommuneSelect());
@@ -51,8 +52,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             const Liste(), //Liste de commune
             const SizedBox(
-              //Espace
-              height: 50,
+              height: 50, //Espace
             ),
             OutlinedButton(
               //Boutton
@@ -83,35 +83,55 @@ class Liste extends StatefulWidget {
 }
 
 class _Liste extends State<Liste> {
-  String valeurChoisie = 'Cocody';
+
+  final listeCommune = [
+    "abobo",
+    "adjame",
+    "anyama",
+    "attecoube",
+    "bingerville",
+    "cocody",
+    "koumassi",
+    "marcory",
+    "plateau",
+    "port bouet",
+    "songon",
+    "treichville",
+    "yopougon"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<String>(
-      value: valeurChoisie,
-      icon: const Icon(Icons.arrow_drop_down_rounded),
-      elevation: 16,
-      underline: Container(
-        height: 2,
-        color: const Color.fromRGBO(21, 106, 155, 1),
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          valeurChoisie = newValue!;
-        });
-      },
-      items: <String>['Cocody', 'Adjamé', 'Treichville']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(
-            value,
-            style: const TextStyle(
-              fontSize: 18,
+    return Column(
+      children: <Widget>[
+        Center(
+            child: DropdownButtonFormField(
+                value: global.valeurChoisie,
+                icon: const Icon(Icons.arrow_drop_down_rounded),
+                //elevation: 16,
+                // underline: Container(
+                //   height: 2,
+                //   color: const Color.fromRGBO(21, 106, 155, 1),
+                // ),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    global.valeurChoisie = newValue!;
+                  });
+                },
+                items: listeCommune.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      style: const TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  );
+                }).toList(),
             ),
-          ),
-        );
-      }).toList(),
+        ),
+      ],
     );
   }
 }

@@ -139,7 +139,7 @@ class _BottomSectionState extends State<BottomSection> {
                           child: Form(
                               key: formKey,
                               child: TextFormField(
-                                decoration: const InputDecoration(
+                                decoration: const InputDecoration.collapsed(
                                   hintText: 'Message',
                                   border: InputBorder.none,
                                 ),
@@ -181,11 +181,10 @@ class _BottomSectionState extends State<BottomSection> {
       messageRequete.envoiMessage(
           global.valeurChoisie,
           Message(
+              nomUser: global.name,
               email: global.email.toString(),
               message: content,
               time: DateTime.now().millisecondsSinceEpoch.toString()));
-      // listScrollController.animateTo(0.0,
-      //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
       messageController.clear();
     } else {
       Fluttertoast.showToast(msg: 'Rien à envoyer', textColor: Colors.red);

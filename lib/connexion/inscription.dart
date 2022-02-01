@@ -97,7 +97,7 @@ class _InscriptionState extends State<Inscription> {
                             color: Colors.black54,
                             fontSize: 14,
                           ),
-                          hintText: 'Connect',
+                          hintText: 'Nom',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
@@ -142,7 +142,7 @@ class _InscriptionState extends State<Inscription> {
                             color: Colors.black54,
                             fontSize: 14,
                           ),
-                          hintText: '.inc',
+                          hintText: 'Prenom',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(

@@ -35,7 +35,13 @@ class MessageAPI {
         .doc();
 
     FirebaseFirestore.instance.runTransaction((transaction) async {
-      transaction.set(referenceDocument, message.toHashMap());
+      transaction.set(
+          referenceDocument,
+          Message(
+            message: message.message,
+            time: message.time,
+            email: message.email,
+          ));
     });
   }
 }

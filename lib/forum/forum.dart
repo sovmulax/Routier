@@ -1,10 +1,10 @@
-import 'package:flutterfire_ui/auth.dart';
+// ignore_for_file: unnecessary_new
+import 'package:loading/loading.dart';
 import 'package:routier/forum/api.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
-import 'package:intl/intl.dart';
-
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -54,20 +54,20 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            children: [
-              const SizedBox(
+            children: const [
+              SizedBox(
                 height: 20,
               ),
               Center(
                 child: Text(
-                  global.valeurChoisie.toUpperCase(),
-                  style: const TextStyle(fontSize: 18),
+                  "NOM DE LA COMMUNE",
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 10,
               ),
-              const Expanded(
+              Expanded(
                 child: ChatPage(),
               ),
             ],
@@ -113,7 +113,7 @@ class _BottomSectionState extends State<BottomSection> {
     return BottomAppBar(
       elevation: 10,
       child: Container(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(20),
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -130,7 +130,7 @@ class _BottomSectionState extends State<BottomSection> {
                     children: [
                       const SizedBox(width: 10),
                       const Icon(
-                        Icons.image,
+                        Icons.insert_emoticon,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
@@ -139,10 +139,10 @@ class _BottomSectionState extends State<BottomSection> {
                           child: Form(
                               key: formKey,
                               child: TextFormField(
+                                textAlignVertical: TextAlignVertical.center,
                                 decoration: const InputDecoration(
-                                  hintText: 'Message',
-                                  border: InputBorder.none,
-                                ),
+                                    border: InputBorder.none,
+                                    labelText: "Message"),
                                 controller: messageController,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -151,7 +151,13 @@ class _BottomSectionState extends State<BottomSection> {
                                   return null;
                                 },
                               ))),
-                      const SizedBox(width: 18.0),
+                      const SizedBox(width: 8.0),
+                      const Icon(
+                        Icons.image,
+                        size: 25.0,
+                        color: Color.fromRGBO(21, 106, 155, 1),
+                      ),
+                      const SizedBox(width: 10.0),
                     ],
                   ),
                 ),
@@ -181,9 +187,10 @@ class _BottomSectionState extends State<BottomSection> {
       messageRequete.envoiMessage(
           global.valeurChoisie,
           Message(
-              email: global.email.toString(),
-              message: content,
-              time: DateTime.now().millisecondsSinceEpoch.toString()));
+            message: content,
+            time: DateTime.now().millisecondsSinceEpoch.toString(),
+            email: global.email,
+          ));
       // listScrollController.animateTo(0.0,
       //     duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
       messageController.clear();
@@ -204,46 +211,40 @@ class _ChatingSectionState extends State<ChatingSection> {
   final MessageAPI messageRequete = MessageAPI();
   List<Map<dynamic, dynamic>> lists = [];
 
-  bool isLastMessage(int index, List<Message> message) {
-    if (index == 0) return true;
-    if (message[index].email != message[index - 1].email) return true;
-    return false;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       height: double.infinity,
       color: Colors.white,
-      child: Column(
-        children: [
-          //const SizedBox(height: 5),
-          Flexible(
-            child: StreamBuilder<List<Message>>(
-              stream: messageRequete.recevoirMessage(global.valeurChoisie),
-              builder: (BuildContext context,
-                  AsyncSnapshot<List<Message>> snapshot) {
-                if (snapshot.hasData) {
-                  List<Message> listMessage = snapshot.data ?? List.from([]);
-                  return ListView.builder(
-                    itemBuilder: (context, index) => TextMessage(
-                        message: listMessage[index].message,
-                        time: listMessage[index].time,
-                        email: listMessage[index].email,
-                        isLastMessage: isLastMessage(index, listMessage)),
-                    itemCount: listMessage.length,
-                    reverse: true,
-                  );
-                } else {
-                  return const Center(
-                      child: LoadingIndicator(size: 16, borderWidth: 2));
-                }
-              },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 45),
+            Flexible(
+              child: StreamBuilder<List<Message>>(
+                stream: messageRequete.recevoirMessage(global.valeurChoisie),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Message>> snapshot) {
+                  if (snapshot.hasData) {
+                    List<Message> listMessage = snapshot.data ?? List.from([]);
+                    return ListView.builder(
+                      itemBuilder: (context, index) => TextMessage(
+                          message: listMessage[index].message,
+                          time: listMessage[index].time,
+                          email: listMessage[index].email),
+                      itemCount: listMessage.length,
+                      reverse: true,
+                    );
+                  } else {
+                    return Center(child: Loading());
+                  }
+                },
+              ),
             ),
-          ),
-          //const SizedBox(height: 15),
-        ],
+            const SizedBox(height: 15),
+          ],
+        ),
       ),
     );
   }
@@ -255,7 +256,7 @@ class Message {
   Message({required this.message, required this.time, required this.email});
 
   Map<String, dynamic> toHashMap() {
-    return {'email': email, 'message': message, 'time': time};
+    return {'message': message, 'time': time, 'email': email};
   }
 }
 
@@ -264,11 +265,9 @@ class TextMessage extends StatelessWidget {
       {Key? key,
       required this.message,
       required this.time,
-      required this.email,
-      required this.isLastMessage})
+      required this.email})
       : super(key: key);
   final String message, time, email;
-  final bool isLastMessage;
   final String profil = 'assets/images/logo.png';
 
   @override
@@ -278,20 +277,34 @@ class TextMessage extends StatelessWidget {
       child: Row(
         children: [
           email != global.email
-              ? Container()
+              ? Container(
+                  margin: const EdgeInsets.only(right: 15),
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(profil),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
               : SizedBox(
-                  //width: 50,
+                  width: 60,
                   child: Row(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(width: 5.0),
+                      const Icon(
+                        Icons.check,
+                        color: Color.fromRGBO(21, 106, 155, 1),
+                        size: 13.0,
+                      ),
+                      const SizedBox(width: 7.0),
                       Text(
-                        DateFormat.MMMd().add_Hm().format(
-                            DateTime.fromMillisecondsSinceEpoch(
-                                int.parse(time))),
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -300,35 +313,81 @@ class TextMessage extends StatelessWidget {
                 ),
           Expanded(
             child: Container(
-              alignment: global.email != email
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
+              alignment: Alignment.centerLeft,
               margin: email != global.email
                   ? const EdgeInsets.only(
-                      right: 15,
+                      right: 25,
                     )
                   : const EdgeInsets.only(
-                      left: 15,
+                      left: 20,
                     ),
-              child: messageWidget(),
+              padding:
+                  const EdgeInsets.only(left: 6, top: 15, right: 6, bottom: 15),
+              decoration: email != global.email
+                  ? const BoxDecoration(
+                      color: Color.fromRGBO(21, 106, 155, 1),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                        bottomRight: Radius.circular(15),
+                      ),
+                    )
+                  : const BoxDecoration(
+                      color: Color.fromRGBO(21, 106, 155, 1),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(12),
+                      ),
+                    ),
+              child: Column(
+                crossAxisAlignment: email != global.email
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.end,
+                children: [
+                  email != global.email
+                      ? Text(
+                          email,
+                          style: const TextStyle(
+                            color: Colors.yellow,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : const SizedBox(height: 0),
+                  email != global.email
+                      ? const SizedBox(height: 10)
+                      : const SizedBox(height: 0),
+                  Text(
+                    message,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           email != global.email
               ? SizedBox(
-                  //width: 50,
+                  width: 60,
                   child: Row(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const Icon(
+                        Icons.check,
+                        color: Color.fromRGBO(21, 106, 155, 1),
+                        size: 13.0,
+                      ),
                       const SizedBox(
-                        width: 5.0,
+                        width: 7.0,
                       ),
                       Text(
-                        DateFormat.MMMd().add_Hm().format(
-                            DateTime.fromMillisecondsSinceEpoch(
-                                int.parse(time))),
+                        time,
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -336,52 +395,36 @@ class TextMessage extends StatelessWidget {
                   ),
                 )
               : Container(),
-        ],
-      ),
-    );
-  }
-
-  Widget messageWidget() {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          global.email != email
-              ? Text(
-                  email,
-                  style: const TextStyle(
+          email != global.email
+              ? Container(
+                  margin: const EdgeInsets.only(
+                    left: 16,
+                    right: 10,
+                  ),
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage(profil),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 )
               : Container(),
-          global.email != email ? const SizedBox(height: 5) : Container(),
-          Text(
-            message,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          email == global.email
+              ? Container(
+                  margin: const EdgeInsets.only(
+                    left: 16,
+                    right: 10,
+                  ),
+                  width: 45,
+                  height: 45,
+                )
+              : Container(),
         ],
       ),
-      padding: const EdgeInsets.fromLTRB(10.0, 7.0, 10.0, 7.0),
-      width: 250.0,
-      decoration: BoxDecoration(
-          color: const Color.fromRGBO(21, 106, 155, 1),
-          borderRadius: global.email == email
-              ? const BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
-                )
-              : const BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                  bottomRight: Radius.circular(8))),
-      margin: const EdgeInsets.only(bottom: 5.0, right: 5.0, left: 5.0),
     );
   }
 }

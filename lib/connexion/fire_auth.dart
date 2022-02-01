@@ -80,9 +80,4 @@ class FireAuth {
 
     return refreshedUser;
   }
-
-
-  
-  
-
 }

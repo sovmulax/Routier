@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'package:routier/forum/commune_select.dart';
 import 'package:routier/map/carte.dart';
 import 'forum/commune_select.dart';
@@ -57,7 +59,7 @@ class SideMenu extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (BuildContext context) => const Map()));
+                  MaterialPageRoute(builder: (BuildContext context) => Maps()));
             },
           ),
           ListTile(

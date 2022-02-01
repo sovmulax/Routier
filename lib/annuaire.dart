@@ -41,17 +41,6 @@ class _AnnuaireState extends State<Annuaire> {
       .doc('annuaire')
       .collection('items');
 
-  @override
-  void initState() {
-    super.initState();
-    // Check for phone call support.
-    canLaunch('tel:123').then((bool result) {
-      setState(() {
-        _hasCallSupport = result;
-      });
-    });
-  }
-
   Future<void> _makePhoneCall(String phoneNumber) async {
     final Uri launchUri = Uri(
       scheme: 'tel',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:routier/connexion/connexion.dart';
 
 class Forget extends StatefulWidget {
   const Forget({Key? key}) : super(key: key);
@@ -34,7 +35,10 @@ class _Forget extends State<Forget> {
         leading: IconButton(
             color: Colors.white,
             onPressed: () {
-              Navigator.pushNamed(context, '/connexion');
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Connexion()));
             },
             icon: const Icon(Icons.arrow_back)),
       ),

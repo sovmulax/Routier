@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:routier/calendrier/events.dart';
 
-void main() {
-  runApp(const Detail());
-}
-
 class Detail extends StatelessWidget {
-  const Detail({Key? key}) : super(key: key);
+  final String ville;
+  final String text;
+  final String source;
+  const Detail(
+      {Key? key, required this.text, required this.source, required this.ville})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +16,28 @@ class Detail extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: "Détails de l'Evenement"),
+      home: Det(
+        title: "Détails de l'Evenement",
+        texts: text,
+        sources: source,
+        villes: ville,
+      ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class Det extends StatelessWidget {
   final String title;
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String villes;
+  final String texts;
+  final String sources;
+  const Det(
+      {Key? key,
+      required this.title,
+      required this.texts,
+      required this.sources,
+      required this.villes})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +55,7 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: const Color.fromRGBO(21, 106, 155, 1),
       ),
-      body: ListView(
-        children: const [CDetail()],
-      ),
+      body: CDetail(text: texts, source: sources, ville: villes),
       drawer: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -70,15 +83,22 @@ class MyHomePage extends StatelessWidget {
 }
 
 class CDetail extends StatelessWidget {
-  final String title = "Détails de l'Evenement";
-  final String text =
-      "Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego,Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son  Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son Nebucadnetsar prit la parole et dit : Béni soit le Dieu de Schadrac, de Méschac et d'Abed Nego, lequel a envoyé son ange et délivré ses serviteurs qui ont eu  en lui, et qui ont violé l'ordre du roi et livréleur corps plutôt que de servir et d'adorer aucun autre dieu que leur Dieu !";
-  final String source = "Source : XXXXXX XXX XXXXX";
+  final String ville;
+  final String text;
+  final String source;
   final String fontStyle = "Ubuntu";
-
-  const CDetail({Key? key}) : super(key: key);
+  const CDetail(
+      {Key? key, required this.text, required this.source, required this.ville})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var city = "";
+    List<String> list = ville.split(',');
+    for (var q = 0; q < list.length; q++) {
+      city = (list.length > 0 ? (city + " \n ") : city) + (list[q]);
+    }
+    print(city);
+
     return Row(
       children: [
         Container(
@@ -98,7 +118,7 @@ class CDetail extends StatelessWidget {
               ),
               Container(
                 child: Text(
-                  "- Koumassi \n - Marcory",
+                  city,
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,
@@ -134,7 +154,7 @@ class CDetail extends StatelessWidget {
               ),
               Container(
                 child: Text(
-                  source,
+                  "Source : $source",
                   style: TextStyle(
                       color: Colors.grey,
                       fontStyle: FontStyle.normal,

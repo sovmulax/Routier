@@ -1,11 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
-import 'forget.dart';
-import 'inscription.dart';
-
-void main() {
-  runApp(const Connecter());
-}
+import 'package:routier/connexion/fire_auth.dart';
+import 'package:routier/connexion/forget.dart';
+import 'package:routier/connexion/inscription.dart';
+import 'package:routier/map/carte.dart';
+import 'package:routier/global.dart' as global;
 
 class Connecter extends StatelessWidget {
   const Connecter({Key? key}) : super(key: key);
@@ -32,7 +34,17 @@ class Connexion extends StatefulWidget {
 }
 
 class _Connexion extends State<Connexion> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
+  }
+
   final _keyForm = GlobalKey<FormState>();
+  String mdp = '', email = '', message = '';
   bool errorEmail = false, errorMdp = false;
   @override
   Widget build(BuildContext context) {
@@ -49,9 +61,9 @@ class _Connexion extends State<Connexion> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (errorMdp || errorEmail)
-                    const Text(
-                      "Formulaire incomplet",
-                      style: TextStyle(
+                    Text(
+                      message,
+                      style: const TextStyle(
                         color: Colors.red,
                         fontSize: 14,
                       ),
@@ -98,6 +110,7 @@ class _Connexion extends State<Connexion> {
                               errorEmail = false;
                             });
                           }
+                          email = val;
                         }),
                   ),
                   const SizedBox(
@@ -141,6 +154,7 @@ class _Connexion extends State<Connexion> {
                               errorMdp = false;
                             });
                           }
+                          mdp = val;
                         }),
                   ),
                   const SizedBox(
@@ -151,14 +165,20 @@ class _Connexion extends State<Connexion> {
                           backgroundColor: Colors.black45,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {
+                      onPressed: () async {
                         if (_keyForm.currentState!.validate()) {
-                          //Connexion
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const Fil()));
+                          User? user = await FireAuth.signInUsingEmailPassword(
+                            email: email,
+                            password: mdp,
+                          );
+                          if (user != null) {
+                            print(user.email);
+                            global.email = user.email.toString();
+                            global.isConnect = true;
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => const Fil()));
+                          }
                         }
                       },
                       child: const Padding(
@@ -173,7 +193,11 @@ class _Connexion extends State<Connexion> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/forget');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Forget()));
                       },
                       child: const Text(
                         "Mot de passe oublie",
@@ -184,7 +208,11 @@ class _Connexion extends State<Connexion> {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/inscription');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const Inscription()));
                       },
                       child: const Text(
                         "S'inscrire",
@@ -197,6 +225,39 @@ class _Connexion extends State<Connexion> {
               )),
         ),
       ),
+    );
+  }
+}
+
+class GetUserName extends StatelessWidget {
+  //GetUserName(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance
+        .collection('routier')
+        .doc('users')
+        .collection('items');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc().get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return Text("Document does not exist");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map data = snapshot.data!.data() as Map;
+          return Text("data = > $data");
+        }
+
+        return Text("loading");
+      },
     );
   }
 }

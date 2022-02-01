@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "530622824329",
+    "project_id": "routier-e0878",
+    "storage_bucket": "routier-e0878.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530622824329:android:6cb57e3333276f911ceb58",
+        "android_client_info": {
+          "package_name": "com.example.routier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530622824329-19h8o9v9vj8shvj71jndsorck2lfjea8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqOL9gtu1-q6ixGMhcxV1YcaOGgwHTnsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530622824329-19h8o9v9vj8shvj71jndsorck2lfjea8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "530622824329-2ffr9hm9vtr9aui0l53l6pt1r0l111m5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.routier"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

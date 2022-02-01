@@ -2,6 +2,7 @@ import 'package:flutterfire_ui/auth.dart';
 import 'package:routier/forum/api.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
+import 'package:intl/intl.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,7 @@ class _BottomSectionState extends State<BottomSection> {
     return BottomAppBar(
       elevation: 10,
       child: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +130,7 @@ class _BottomSectionState extends State<BottomSection> {
                     children: [
                       const SizedBox(width: 10),
                       const Icon(
-                        Icons.insert_emoticon,
+                        Icons.image,
                         size: 25.0,
                         color: Color.fromRGBO(21, 106, 155, 1),
                       ),
@@ -138,7 +139,6 @@ class _BottomSectionState extends State<BottomSection> {
                           child: Form(
                               key: formKey,
                               child: TextFormField(
-                                textAlignVertical: TextAlignVertical.center,
                                 decoration: const InputDecoration(
                                   hintText: 'Message',
                                   border: InputBorder.none,
@@ -151,13 +151,7 @@ class _BottomSectionState extends State<BottomSection> {
                                   return null;
                                 },
                               ))),
-                      const SizedBox(width: 8.0),
-                      const Icon(
-                        Icons.image,
-                        size: 25.0,
-                        color: Color.fromRGBO(21, 106, 155, 1),
-                      ),
-                      const SizedBox(width: 10.0),
+                      const SizedBox(width: 18.0),
                     ],
                   ),
                 ),
@@ -210,6 +204,12 @@ class _ChatingSectionState extends State<ChatingSection> {
   final MessageAPI messageRequete = MessageAPI();
   List<Map<dynamic, dynamic>> lists = [];
 
+  bool isLastMessage(int index, List<Message> message) {
+    if (index == 0) return true;
+    if (message[index].email != message[index - 1].email) return true;
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -218,7 +218,7 @@ class _ChatingSectionState extends State<ChatingSection> {
       color: Colors.white,
       child: Column(
         children: [
-          const SizedBox(height: 45),
+          //const SizedBox(height: 5),
           Flexible(
             child: StreamBuilder<List<Message>>(
               stream: messageRequete.recevoirMessage(global.valeurChoisie),
@@ -230,7 +230,8 @@ class _ChatingSectionState extends State<ChatingSection> {
                     itemBuilder: (context, index) => TextMessage(
                         message: listMessage[index].message,
                         time: listMessage[index].time,
-                        email: listMessage[index].email),
+                        email: listMessage[index].email,
+                        isLastMessage: isLastMessage(index, listMessage)),
                     itemCount: listMessage.length,
                     reverse: true,
                   );
@@ -241,7 +242,7 @@ class _ChatingSectionState extends State<ChatingSection> {
               },
             ),
           ),
-          const SizedBox(height: 15),
+          //const SizedBox(height: 15),
         ],
       ),
     );
@@ -263,9 +264,11 @@ class TextMessage extends StatelessWidget {
       {Key? key,
       required this.message,
       required this.time,
-      required this.email})
+      required this.email,
+      required this.isLastMessage})
       : super(key: key);
   final String message, time, email;
+  final bool isLastMessage;
   final String profil = 'assets/images/logo.png';
 
   @override
@@ -275,34 +278,20 @@ class TextMessage extends StatelessWidget {
       child: Row(
         children: [
           email != global.email
-              ? Container(
-                  margin: const EdgeInsets.only(right: 15),
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage(profil),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                )
+              ? Container()
               : SizedBox(
-                  width: 60,
+                  //width: 50,
                   child: Row(
+                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
-                        Icons.check,
-                        color: Color.fromRGBO(21, 106, 155, 1),
-                        size: 13.0,
-                      ),
-                      const SizedBox(width: 7.0),
+                      const SizedBox(width: 5.0),
                       Text(
-                        time,
+                        DateFormat.MMMd().add_Hm().format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                int.parse(time))),
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 14,
+                          fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -311,81 +300,35 @@ class TextMessage extends StatelessWidget {
                 ),
           Expanded(
             child: Container(
-              alignment: Alignment.centerLeft,
+              alignment: global.email != email
+                  ? Alignment.centerLeft
+                  : Alignment.centerRight,
               margin: email != global.email
                   ? const EdgeInsets.only(
-                      right: 25,
+                      right: 15,
                     )
                   : const EdgeInsets.only(
-                      left: 20,
+                      left: 15,
                     ),
-              padding:
-                  const EdgeInsets.only(left: 6, top: 15, right: 6, bottom: 15),
-              decoration: email != global.email
-                  ? const BoxDecoration(
-                      color: Color.fromRGBO(21, 106, 155, 1),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                        bottomRight: Radius.circular(15),
-                      ),
-                    )
-                  : const BoxDecoration(
-                      color: Color.fromRGBO(21, 106, 155, 1),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(12),
-                      ),
-                    ),
-              child: Column(
-                crossAxisAlignment: email != global.email
-                    ? CrossAxisAlignment.start
-                    : CrossAxisAlignment.end,
-                children: [
-                  email != global.email
-                      ? Text(
-                          email,
-                          style: const TextStyle(
-                            color: Colors.yellow,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        )
-                      : const SizedBox(height: 0),
-                  email != global.email
-                      ? const SizedBox(height: 10)
-                      : const SizedBox(height: 0),
-                  Text(
-                    message,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
+              child: messageWidget(),
             ),
           ),
           email != global.email
               ? SizedBox(
-                  width: 60,
+                  //width: 50,
                   child: Row(
+                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
-                        Icons.check,
-                        color: Color.fromRGBO(21, 106, 155, 1),
-                        size: 13.0,
-                      ),
                       const SizedBox(
-                        width: 7.0,
+                        width: 5.0,
                       ),
                       Text(
-                        time,
+                        DateFormat.MMMd().add_Hm().format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                int.parse(time))),
                         style: const TextStyle(
                           color: Color.fromRGBO(21, 106, 155, 1),
-                          fontSize: 14,
+                          fontSize: 12,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -393,36 +336,52 @@ class TextMessage extends StatelessWidget {
                   ),
                 )
               : Container(),
-          email != global.email
-              ? Container(
-                  margin: const EdgeInsets.only(
-                    left: 16,
-                    right: 10,
-                  ),
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage(profil),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                )
-              : Container(),
-          email == global.email
-              ? Container(
-                  margin: const EdgeInsets.only(
-                    left: 16,
-                    right: 10,
-                  ),
-                  width: 45,
-                  height: 45,
-                )
-              : Container(),
         ],
       ),
+    );
+  }
+
+  Widget messageWidget() {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          global.email != email
+              ? Text(
+                  email,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w300,
+                  ),
+                )
+              : Container(),
+          global.email != email ? const SizedBox(height: 5) : Container(),
+          Text(
+            message,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 13,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.fromLTRB(10.0, 7.0, 10.0, 7.0),
+      width: 250.0,
+      decoration: BoxDecoration(
+          color: const Color.fromRGBO(21, 106, 155, 1),
+          borderRadius: global.email == email
+              ? const BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
+                )
+              : const BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(8),
+                  bottomRight: Radius.circular(8))),
+      margin: const EdgeInsets.only(bottom: 5.0, right: 5.0, left: 5.0),
     );
   }
 }

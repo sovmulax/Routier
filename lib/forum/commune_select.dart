@@ -85,7 +85,6 @@ class Liste extends StatefulWidget {
 }
 
 class _Liste extends State<Liste> {
-
   final listeCommune = [
     "abobo",
     "adjame",
@@ -106,33 +105,32 @@ class _Liste extends State<Liste> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Center(
+        Container(
+          width: 150,
+          child: Center(
             child: DropdownButtonFormField(
-                value: global.valeurChoisie,
-                icon: const Icon(Icons.arrow_drop_down_rounded),
-                elevation: 16,
-                // underline: Container(
-                //   height: 2,
-                //   color: const Color.fromRGBO(21, 106, 155, 1),
-                // ),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    global.valeurChoisie = newValue!;
-                  });
-                },
-                items: listeCommune.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
+              value: global.valeurChoisie,
+              icon: const Icon(Icons.arrow_drop_down_rounded),
+              elevation: 16,
+              onChanged: (String? newValue) {
+                setState(() {
+                  global.valeurChoisie = newValue!;
+                });
+              },
+              items: listeCommune.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 18,
                     ),
-                  );
-                }).toList(),
+                  ),
+                );
+              }).toList(),
             ),
-        ),
+          ),
+        )
       ],
     );
   }

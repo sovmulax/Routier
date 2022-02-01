@@ -230,6 +230,8 @@ class _Connexion extends State<Connexion> {
 }
 
 class GetUserName extends StatelessWidget {
+  const GetUserName({Key? key}) : super(key: key);
+
   //GetUserName(this.documentId);
 
   @override
@@ -244,11 +246,11 @@ class GetUserName extends StatelessWidget {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text("Something went wrong");
+          return const Text("Something went wrong");
         }
 
         if (snapshot.hasData && !snapshot.data!.exists) {
-          return Text("Document does not exist");
+          return const Text("Document does not exist");
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
@@ -256,7 +258,7 @@ class GetUserName extends StatelessWidget {
           return Text("data = > $data");
         }
 
-        return Text("loading");
+        return const Text("loading");
       },
     );
   }

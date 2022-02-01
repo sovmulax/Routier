@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:routier/connexion/connexion.dart';
 import 'package:routier/menu.dart';
-import 'package:routier/global.dart' as global;
 
 class Map extends StatelessWidget {
   const Map({Key? key}) : super(key: key);

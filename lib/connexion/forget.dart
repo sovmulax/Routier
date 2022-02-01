@@ -15,7 +15,7 @@ class _Forget extends State<Forget> {
   bool errorEmail = false;
   final SnackBar _snackBar = const SnackBar(
     content: Text(
-      "Mail de recupperation envoye",
+      "Mail de récupération envoye",
       style: TextStyle(color: Color.fromRGBO(21, 106, 155, 1), fontSize: 18.0),
     ),
     duration: Duration(seconds: 5),
@@ -129,7 +129,7 @@ class _Forget extends State<Forget> {
                       child: const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Text(
-                          "Reccuperer mon compte",
+                          "Récupérer mon compte",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       )),

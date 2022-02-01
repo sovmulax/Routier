@@ -1,10 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/forum/forum.dart';
 import 'package:routier/menu.dart';
 import 'package:routier/global.dart' as global;
 
-void main() {
+Future<void> main() async {
   runApp(const CommuneSelect());
+  await Firebase.initializeApp();
 }
 
 class CommuneSelect extends StatelessWidget {
@@ -103,33 +105,32 @@ class _Liste extends State<Liste> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Center(
-          child: DropdownButtonFormField(
-            value: global.valeurChoisie,
-            icon: const Icon(Icons.arrow_drop_down_rounded),
-            //elevation: 16,
-            // underline: Container(
-            //   height: 2,
-            //   color: const Color.fromRGBO(21, 106, 155, 1),
-            // ),
-            onChanged: (String? newValue) {
-              setState(() {
-                global.valeurChoisie = newValue!;
-              });
-            },
-            items: listeCommune.map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 18,
+        Container(
+          width: 150,
+          child: Center(
+            child: DropdownButtonFormField(
+              value: global.valeurChoisie,
+              icon: const Icon(Icons.arrow_drop_down_rounded),
+              elevation: 16,
+              onChanged: (String? newValue) {
+                setState(() {
+                  global.valeurChoisie = newValue!;
+                });
+              },
+              items: listeCommune.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 18,
+                    ),
                   ),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
-        ),
+        )
       ],
     );
   }

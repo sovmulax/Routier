@@ -41,6 +41,7 @@ class _Connexion extends State<Connexion> {
   final _keyForm = GlobalKey<FormState>();
   String mdp = '', email = '', message = '';
   bool errorEmail = false, errorMdp = false;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

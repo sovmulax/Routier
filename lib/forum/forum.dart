@@ -228,9 +228,10 @@ class _ChatingSectionState extends State<ChatingSection> {
                   List<Message> listMessage = snapshot.data ?? List.from([]);
                   return ListView.builder(
                     itemBuilder: (context, index) => TextMessage(
+                        nomUser: listMessage[index].nomUser,
+                        email: listMessage[index].email,
                         message: listMessage[index].message,
                         time: listMessage[index].time,
-                        email: listMessage[index].email,
                         isLastMessage: isLastMessage(index, listMessage)),
                     itemCount: listMessage.length,
                     reverse: true,
@@ -250,24 +251,25 @@ class _ChatingSectionState extends State<ChatingSection> {
 }
 
 class Message {
-  final String message, time, email;
+  final String nomUser, email, message, time;
 
-  Message({required this.message, required this.time, required this.email});
+  Message({required this.nomUser, required this.message, required this.time, required this.email});
 
   Map<String, dynamic> toHashMap() {
-    return {'email': email, 'message': message, 'time': time};
+    return {'nomUser': nomUser,'email': email, 'message': message, 'time': time};
   }
 }
 
 class TextMessage extends StatelessWidget {
-  TextMessage(
+  const TextMessage(
       {Key? key,
+      required this.nomUser,
       required this.message,
       required this.time,
       required this.email,
       required this.isLastMessage})
       : super(key: key);
-  final String message, time, email;
+  final String nomUser, message, time, email;
   final bool isLastMessage;
   final String profil = 'assets/images/logo.png';
 
@@ -348,7 +350,7 @@ class TextMessage extends StatelessWidget {
         children: [
           global.email != email
               ? Text(
-                  email,
+                  nomUser,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,

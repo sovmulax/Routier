@@ -14,7 +14,11 @@ class MessageAPI {
     var data = snapshot.data();
     if (data == null) throw Exception("Message non trouvé");
     return Message(
-        message: data['message'], time: data['time'], email: data['email']);
+      nomUser: data['nomUser'],
+      message: data['message'],
+      time: data['time'],
+      email: data['email'],
+    );
   }
 
   Stream<List<Message>> recevoirMessage(String commune) {

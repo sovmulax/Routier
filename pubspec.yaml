@@ -14,7 +14,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   material_floating_search_bar: ^0.3.6
   dio: ^4.0.0
-  url_launcher: ^6.0.18
   firebase_core: ^1.0.1
   cloud_firestore: ^3.1.7
   firebase_auth: ^3.3.6
@@ -28,6 +27,7 @@ dependencies:
   geolocator: ^8.0.5
   geocoding: ^2.0.0
   flutter_polyline_points: ^1.0.0
+  url_launcher: ^6.0.18
 
   
 dev_dependencies:

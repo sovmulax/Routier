@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:routier/connexion/fire_auth.dart';
 import 'package:routier/connexion/forget.dart';
 import 'package:routier/connexion/inscription.dart';
 import 'package:routier/map/carte.dart';
+import 'package:routier/database.dart';
 import 'package:routier/global.dart' as global;
 
 class Connecter extends StatelessWidget {
@@ -167,6 +169,36 @@ class _Connexion extends State<Connexion> {
                           if (user != null) {
                             print(user.email);
                             global.email = user.email.toString();
+                            final FirebaseFirestore _firestore =
+                                FirebaseFirestore.instance;
+                            final CollectionReference _mainCollection =
+                                _firestore.collection('routier');
+                            CollectionReference communeItemCollection =
+                                _mainCollection
+                                    .doc('users')
+                                    .collection('items');
+
+                            var nam;
+                            var nam1;
+                            var nam2;
+                            var result = await _firestore
+                                .collection("routier")
+                                .doc('users')
+                                .collection('items')
+                                .where("email", isEqualTo: "${user.email.toString()}")
+                                .get();
+                            result.docs.forEach((res) {
+                              nam = res.data();
+                              var nom = nam.toString();
+                              List<String> parts = nom.split(',');
+                              List<String> parts1 = parts[2].split(':');
+                              List<String> parts2 = parts[3].split(':');
+
+                              nam1 = parts1[1].toString();
+                              nam2 = parts2[1].toString();
+                            });
+                            
+                            global.name = nam1 + ' ' + nam2;
                             global.isConnect = true;
                             Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(

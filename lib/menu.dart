@@ -23,16 +23,17 @@ class SideMenu extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: Image.asset('assets/images/logo.png'),
+                  child: Image.asset('assets/images/user.png', height: 30, width: 30,),
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    shape: BoxShape.circle,
+                    //borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                   width: MediaQuery.of(context).size.width * 0.15,
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                const Text(
-                  'John Doe',
-                  style: TextStyle(
+                 Text(
+                  global.name,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontStyle: FontStyle.italic,
                       fontSize: 25,

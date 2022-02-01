@@ -140,6 +140,8 @@ class _BottomSectionState extends State<BottomSection> {
                           child: Form(
                               key: formKey,
                               child: TextFormField(
+                                keyboardType: TextInputType.multiline,
+                                maxLines: null,
                                 decoration: const InputDecoration.collapsed(
                                   hintText: 'Message',
                                   border: InputBorder.none,

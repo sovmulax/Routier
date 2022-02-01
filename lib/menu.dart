@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/actualit%C3%A9/fil.dart';
 import 'package:routier/annuaire.dart';
 import 'package:routier/calendrier/events.dart';
+import 'package:routier/connexion/connexion.dart';
 import 'package:routier/forum/commune_select.dart';
 import 'package:routier/map/carte.dart';
 import 'forum/commune_select.dart';
@@ -21,16 +23,17 @@ class SideMenu extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: Image.asset('assets/images/logo.png'),
+                  child: Image.asset('assets/images/user.png', height: 30, width: 30,),
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    shape: BoxShape.circle,
+                    //borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
                   width: MediaQuery.of(context).size.width * 0.15,
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                const Text(
-                  'John Doe',
-                  style: TextStyle(
+                 Text(
+                  global.name,
+                  style: const TextStyle(
                       color: Colors.black,
                       fontStyle: FontStyle.italic,
                       fontSize: 25,
@@ -57,7 +60,7 @@ class SideMenu extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (BuildContext context) => const Map()));
+                  MaterialPageRoute(builder: (BuildContext context) => Maps()));
             },
           ),
           ListTile(

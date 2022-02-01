@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:routier/connexion/connexion.dart';
 
@@ -9,13 +10,22 @@ class Forget extends StatefulWidget {
 }
 
 class _Forget extends State<Forget> {
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
+  }
+
   final _keyForm = GlobalKey<FormState>();
 
   String email = '', message = '';
   bool errorEmail = false;
   final SnackBar _snackBar = const SnackBar(
     content: Text(
-      "Mail de récupération envoye",
+      "Mail de recupperation envoye",
       style: TextStyle(color: Color.fromRGBO(21, 106, 155, 1), fontSize: 18.0),
     ),
     duration: Duration(seconds: 5),
@@ -129,7 +139,7 @@ class _Forget extends State<Forget> {
                       child: const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Text(
-                          "Récupérer mon compte",
+                          "Reccuperer mon compte",
                           style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
                       )),

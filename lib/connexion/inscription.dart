@@ -325,7 +325,7 @@ class _InscriptionState extends State<Inscription> {
                             });
                           } else if (errorPass) {
                             setState(() {
-                              message = "mots de passe incompatible";
+                              message = "Mot de passe incompatible";
                             });
                           } else {
                             message = '';

@@ -6,7 +6,6 @@ import 'package:routier/connexion/fire_auth.dart';
 import 'package:routier/connexion/forget.dart';
 import 'package:routier/connexion/inscription.dart';
 import 'package:routier/map/carte.dart';
-import 'package:routier/database.dart';
 import 'package:routier/global.dart' as global;
 
 class Connecter extends StatelessWidget {
@@ -179,9 +178,7 @@ class _Connexion extends State<Connexion> {
                                     .doc('users')
                                     .collection('items');
 
-                            var nam;
-                            var nam1;
-                            var nam2;
+                            var nam, nam1, nam2;
                             var result = await _firestore
                                 .collection("routier")
                                 .doc('users')
